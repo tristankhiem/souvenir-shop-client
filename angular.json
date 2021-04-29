@@ -126,7 +126,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "urbangovernance-client-district:build"
+            "browserTarget": "urbangovernance-client-district:build",
+            "port": 4201
           },
           "configurations": {
             "production": {
