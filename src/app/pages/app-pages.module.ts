@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {AppComponentsModule} from '../components/app-components.module';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import {CarouselModule, WavesModule} from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,9 @@ import {FormsModule} from '@angular/forms';
     CommonModule,
     FormsModule,
     AppPagesRoutingModule,
-    AppComponentsModule
+    AppComponentsModule,
+    CarouselModule,
+    WavesModule
   ],
   providers: [
     ...AppComponentsModule.forRoot().providers

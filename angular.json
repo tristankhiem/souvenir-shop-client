@@ -66,7 +66,8 @@
               "node_modules/docxtemplater/build/docxtemplater.min.js",
               "node_modules/file-saver/dist/FileSaver.min.js",
               "src/assets/js/adminlte.js",
-              "src/assets/js/main.js"
+              "src/assets/js/main.js",
+              "node_modules/angular-bootstrap-md/bundles/angular-bootstrap-md.umd.js"
             ]
           },
           "configurations": {

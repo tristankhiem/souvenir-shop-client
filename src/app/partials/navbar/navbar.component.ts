@@ -3,7 +3,7 @@ import {AppAlert, AppLoading, AppModals} from '../../utils';
 import {CategoryService} from '../../services/store/category.service';
 import {HTTP_CODE_CONSTANT} from '../../constants/http-code.constant';
 import {ResponseModel} from '../../data-services/response.model';
-import {CategoryModel} from '../../data-services/schema/category.model';
+import {CategoryFullModel} from '../../data-services/schema/category-full.model';
 
 declare var $: any;
 
@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
   ) {
   }
 
-  public categoryList: CategoryModel[] = [];
+  public categoryList: CategoryFullModel[] = [];
 
   ngOnInit(): void{
     this.getCategory();
@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit {
     this.categoryService.getAll().subscribe(res => this.getCategoryCompleted(res, targetLoading));
   }
 
-  private getCategoryCompleted(res: ResponseModel<CategoryModel[]>, targetLoading: ElementRef): void {
+  private getCategoryCompleted(res: ResponseModel<CategoryFullModel[]>, targetLoading: ElementRef): void {
     this.loading.hide(targetLoading);
     if (res.status !== HTTP_CODE_CONSTANT.OK) {
       this.alert.errorMessages(res.message);

@@ -1,49 +1,59 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand navbar-light">
+<nav class="navbar navbar-expand navbar-light p-0">
   <div class="container">
-    <div class="row">
-      <div class="col text-right">
-        <p>
-          <span style="font-size: 14px;">
-            <a href="#" style="color:chocolate">HỆ THỐNG CỬA HÀNG</a>
-          </span>
-        </p>
-        <p>
-          <span style="font-size: 14px;">
-            <a href="#" style="color: chocolate">VỀ PUN'S HOUSE</a>
-          </span>
-        </p>
-      </div>
-    </div>
+    <ul class="nav navbar-nav text-right" style="margin-left: auto;">
+      <li class="nav-item" style="display: inline-block">
+        <a class="nav-link font-weight-bolder" href="#" role="button">Hệ thống cửa hàng</a>
+      </li>
+      <li class="nav-item" style="display: inline-block">
+        <a class="nav-link font-weight-bolder" href="#" role="button">Về chúng tôi</a>
+      </li>
+    </ul>
   </div>
 </nav>
-<div class="content-header">
+
+<div class="content-header d-flex justify-content-center">
   <div class="input-group search">
     <input type="text" class="form-control" name="q" placeholder="Tìm kiếm sản phẩm" style="border: none;">
-      <span class="input-group-btn">
-        <button class="btn btn-pink" type="submit">
-          <i class="fa fa-search"></i>
-        </button>
-      </span>
+    <span class="input-group-btn">
+      <button class="btn btn-pink" type="submit">
+        <i class="fa fa-search"></i>
+      </button>
+    </span>
   </div>
-  <div>
-    <!-- User Account Menu -->
-    <app-user-profile></app-user-profile>
-  </div>
+  <span>
+    <a class="nav-link font-weight-bolder" href="#" role="button" style="color: #7A3F4B">Đăng nhập</a>
+  </span>
+  <span>
+    <a class="nav-link font-weight-bolder" href="#" role="button" style="color: #7A3F4B">Đăng ký</a>
+  </span>
+  <app-common-notification></app-common-notification>
 </div>
 <nav class="navbar navbar-expand navbar-light">
   <!-- Left navbar links -->
   <div class="container">
     <ul class="nav navbar-nav">
-      <li *ngFor="let category of categoryList" class="nav-item" style="display: block">
-        <a class="nav-link font-weight-bolder" href="#" role="button">{{category.name}}</a>
+      <li class="nav-item dropdown" style="display: block">
+        <a class="nav-link dropdown-toggle font-weight-bolder" data-toggle="dropdown" href="#" role="button" aria-expanded="true">Tất cả</a>
+      </li>
+      <li *ngFor="let category of categoryList" class="nav-item dropdown" style="display: block">
+        <a class="nav-link dropdown-toggle font-weight-bolder" data-toggle="dropdown" href="#" role="button" aria-expanded="true">{{category.name}}</a>
+        <ul class="dropdown-menu dropdown" role="menu" style="font-size: 14px; background-color: #FFCECD">
+          <li *ngFor="let subCategory of category.subCategories" class="nav-item">
+            <a class="nav-link nav-sub-item" href="#" style="color: #A04444">{{subCategory.name}}</a>
+          </li>
+        </ul>
       </li>
     </ul>
   </div>
+<!--  <div>-->
+<!--    &lt;!&ndash; User Account Menu &ndash;&gt;-->
+<!--    <app-user-profile></app-user-profile>-->
+<!--  </div>-->
   <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
     <!-- Notifications Dropdown Menu -->
-    
+
   </ul>
 </nav>
 <!-- /.navbar -->

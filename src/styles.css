@@ -113,6 +113,10 @@ input.adi-none-appearance[type=number] {
   color: #F08A90
 }
 
+.nav-link {
+  color: #DC747B;
+}
+
 .btn-pink {
   color: #fff;
   background-color: #ffb0bd;
@@ -123,5 +127,28 @@ input.adi-none-appearance[type=number] {
   border-radius: 8px;
   overflow: hidden;
   width: 500px;
-  
+}
+
+ul {
+  list-style:none;
+}
+
+ul li a:hover{
+  background: #F2C2CB;
+}
+
+ul li ul.dropdown{
+  background: #f2f2f2;
+  display: none;
+  position: absolute;
+  z-index: 999;
+  left: 0;
+}
+
+ul li:hover ul.dropdown{
+  display: block;	/* Display the dropdown */
+}
+
+ul li ul.dropdown li{
+  display: block;
 }
