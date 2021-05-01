@@ -108,3 +108,18 @@ input.adi-none-appearance[type=number] {
 .content-wrapper {
   background: white;
 }
+
+.nav-link:hover {
+  color: #F08A90
+}
+
+.btn-pink {
+  color: #fff;
+  background-color: #ffb0bd;
+}
+
+.search {
+  border: 2px solid #ffb0bd;
+  border-radius: 8px;
+  overflow: hidden;
+}

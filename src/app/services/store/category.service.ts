@@ -1,15 +1,17 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {LoginModel} from '../../data-services/login.model';
 import {StoreBaseService} from '../generic/store-base.service';
 import {BaseSearchModel} from '../../data-services/search/base-search.model';
-import {SizeModel} from '../../data-services/schema/size.model';
 import {CategoryModel} from '../../data-services/schema/category.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService extends StoreBaseService {
+  public getAll(): Observable<any> {
+    return this.get('/api/category');
+  }
+
   public search(search: BaseSearchModel<CategoryModel[]>): Observable<any> {
     return this.post('/api/category/search', search);
   }
