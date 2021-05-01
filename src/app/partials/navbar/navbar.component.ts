@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
     this.getCategory();
   }
 
-  private getCategory(targetLoading?: ElementRef): void {
+  public getCategory(targetLoading?: ElementRef): void {
     this.loading.show(targetLoading);
     this.categoryService.getAll().subscribe(res => this.getCategoryCompleted(res, targetLoading));
   }

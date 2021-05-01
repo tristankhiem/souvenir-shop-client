@@ -122,4 +122,6 @@ input.adi-none-appearance[type=number] {
   border: 2px solid #ffb0bd;
   border-radius: 8px;
   overflow: hidden;
+  width: 500px;
+  
 }
