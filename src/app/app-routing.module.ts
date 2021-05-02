@@ -4,7 +4,6 @@ import {NotFoundComponent} from './pages/error/404/not-found.component';
 import {AccessDeniedComponent} from './pages/error/403/access-denied.component';
 import {LoginComponent} from './pages/login/login.component';
 import {LayoutComponent} from './partials/layout/layout.component';
-import {HomeComponent} from './pages/home/home.component';
 
 const routes: Routes = [
   {
@@ -30,10 +29,6 @@ const routes: Routes = [
     path: '403',
     component: AccessDeniedComponent,
   },
-  {
-    path: 'trang-chu',
-    component: HomeComponent,
-  },
   {path: '**', redirectTo: '404'},
 ];
 
@@ -48,5 +43,4 @@ export const routedComponents = [
   LoginComponent,
   NotFoundComponent,
   AccessDeniedComponent,
-  HomeComponent,
 ];

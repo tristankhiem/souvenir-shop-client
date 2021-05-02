@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   title = 'Quản lý đô thị';
 
   private anonymousUrls = [
+    '/trang-chu',
     '/dang-nhap',
     '/404',
     '/403'

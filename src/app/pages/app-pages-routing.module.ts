@@ -13,6 +13,10 @@ const routes: Routes = [
     path: 'thay-doi-mat-khau',
     component: ChangePasswordComponent
   },
+  {
+    path: 'trang-chu',
+    component: HomeComponent,
+  },
 ];
 
 @NgModule({
