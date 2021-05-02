@@ -23,6 +23,5 @@ export class AppPagesRoutingModule {
 }
 
 export const routedComponents = [
-  HomeComponent,
   ChangePasswordComponent,
 ];
