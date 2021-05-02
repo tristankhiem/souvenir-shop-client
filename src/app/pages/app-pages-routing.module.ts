@@ -10,10 +10,6 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'trang-chu',
-    component: HomeComponent,
-  },
-  {
     path: 'thay-doi-mat-khau',
     component: ChangePasswordComponent
   },
@@ -28,5 +24,5 @@ export class AppPagesRoutingModule {
 
 export const routedComponents = [
   HomeComponent,
-  ChangePasswordComponent
+  ChangePasswordComponent,
 ];

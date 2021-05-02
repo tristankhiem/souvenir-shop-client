@@ -8,6 +8,8 @@ import {JwtResponseModel} from '../../data-services/jwt-response.model';
 import {HTTP_CODE_CONSTANT} from '../../constants/http-code.constant';
 import {EmployeeAuthService} from '../../services/store/employee-auth.service';
 import {CurrentUserService} from '../../services/store/current-user.service';
+import { CustomerService } from 'src/app/services/store/customer.service';
+import { CustomerModel } from 'src/app/data-services/schema/customer.model';
 
 declare var $: any;
 
@@ -16,14 +18,14 @@ declare var $: any;
   templateUrl: './login.component.html',
 })
 export class LoginComponent implements AfterViewInit {
-  public loginModel: LoginModel = new LoginModel();
+  // public loginModel: LoginModel = new LoginModel();
+  public customer: CustomerModel = new CustomerModel();
 
   constructor(
     private loading: AppLoading,
     private alert: AppAlert,
-    private employeeAuthService: EmployeeAuthService,
+    private customerService: CustomerService,
     private router: Router,
-    private currentUserService: CurrentUserService
   ) {
     $('body').addClass('login-page adi-background-guest');
   }
@@ -39,22 +41,38 @@ export class LoginComponent implements AfterViewInit {
 
   public login(): void {
     this.loading.show();
-    this.employeeAuthService.login(this.loginModel).subscribe(res => this.loginCompleted(res));
+    this.customerService.login(this.customer).subscribe(res => this.loginCompleted(res));
   }
 
-  private loginCompleted(res: ResponseModel<JwtResponseModel>): void {
+  // private loginCompleted(res: ResponseModel<JwtResponseModel>): void {
+  //   this.loading.hide();
+  //   if (res.status !== HTTP_CODE_CONSTANT.OK) {
+  //     res.message.forEach(value => {
+  //       this.alert.error(value);
+  //     });
+  //     return;
+  //   }
+
+  //   const user = res.result.user;
+  //   this.currentUserService.setUser(user);
+  //   localStorage.setItem(AUTH_CONSTANT.USER_DATA, JSON.stringify(user));
+
+  //   this.router.navigateByUrl('/trang-chu');
+  // }
+
+  private loginCompleted(res: ResponseModel<CustomerModel>): void {
     this.loading.hide();
-    if (res.status !== HTTP_CODE_CONSTANT.OK) {
+    if (res.status !== HTTP_CODE_CONSTANT.OK){
       res.message.forEach(value => {
         this.alert.error(value);
       });
       return;
     }
-
-    const user = res.result.user;
-    this.currentUserService.setUser(user);
-    localStorage.setItem(AUTH_CONSTANT.USER_DATA, JSON.stringify(user));
-
     this.router.navigateByUrl('/trang-chu');
+  }
+
+  public signup(): void {
+    this.loading.show();
+    this.router.navigateByUrl('/dang-ky');
   }
 }

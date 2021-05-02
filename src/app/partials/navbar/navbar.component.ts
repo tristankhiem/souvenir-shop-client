@@ -4,6 +4,7 @@ import {CategoryService} from '../../services/store/category.service';
 import {HTTP_CODE_CONSTANT} from '../../constants/http-code.constant';
 import {ResponseModel} from '../../data-services/response.model';
 import {CategoryFullModel} from '../../data-services/schema/category-full.model';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -17,7 +18,8 @@ export class NavbarComponent implements OnInit {
     private loading: AppLoading,
     private alert: AppAlert,
     private modal: AppModals,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private router: Router,
   ) {
   }
 
@@ -39,5 +41,15 @@ export class NavbarComponent implements OnInit {
     }
 
     this.categoryList = res.result;
+  }
+
+  public login(): void{
+    this.loading.show();
+    this.router.navigateByUrl('/dang-nhap');
+  }
+
+  public signup(): void{
+    this.loading.show();
+    this.router.navigateByUrl('/dang-ky');
   }
 }
