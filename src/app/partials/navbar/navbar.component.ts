@@ -44,12 +44,10 @@ export class NavbarComponent implements OnInit {
   }
 
   public login(): void{
-    this.loading.show();
     this.router.navigateByUrl('/dang-nhap');
   }
 
   public signup(): void{
-    this.loading.show();
     this.router.navigateByUrl('/dang-ky');
   }
 }
