@@ -1,0 +1,116 @@
+<div class="login-box mx-auto">
+    <form novalidate #signUpForm="ngForm" (submit)="onSave()">
+        <div class="login-logo">
+            <a href="#">
+                <h1 class="text-dark text-bol" style="font-family: Cambria;">ĐĂNG KÝ</h1>
+            </a>
+        </div>
+        <!--./ login-logo -->
+        <div class="card">
+            <div class="card-body login-card-body">
+                <div>
+                    <div class="form-group mb-3">
+                        <label for="name">Họ tên</label>
+                        <input type="name" name="name" class="form-control" placeholder="Họ tên"
+                        id="name" #name="ngModel" [(ngModel)]="customer.name"
+                        [class]="{'is-valid': name.touched  && name.invalid}" required/>
+                        <ng-template [ngIf]="name.touched && name.invalid">
+                            <div *ngIf="name.errors?.required" class="invalid-feedback d-block">
+                                Vui lòng nhập họ tên
+                            </div>
+                        </ng-template>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="email">Tài khoản</label>
+                        <input type="email" name="email" id="email"
+                        class="form-control" placeholder="Tài khoản" #email="ngModel"
+                        [(ngModel)]="customer.email"
+                        [class]="{'is-valid': email.touched && email.invalid}" required>
+                        <ng-template [ngIf]="email.touched && email.invalid">
+                            <div *ngIf="email.errors?.required" class="invalid-feedback d-block">
+                                Vui lòng nhập tài khoản/email
+                            </div>
+                            <div *ngIf="email.errors?.pattern" class="invalid-feedback d-block">
+                                Email không hợp lệ
+                            </div>
+                        </ng-template>
+                    </div>
+                    <div class="form-group mb-3 ">
+                        <label for="password">Mật khẩu</label>
+                        <input type="password" name="password" id="password"
+                        class="form-control" placeholder="Mật khẩu" #password="ngModel"
+                        [(ngModel)]="customer.password"
+                        [class]="{'is-valid': password.touched && password.invalid}" required>
+                        <ng-template [ngIf]="password.touched && password.invalid">
+                            <div *ngIf="password.errors?.required" class="invalid-feedback d-block">
+                                Vui lòng nhập password
+                            </div>
+                            <div *ngIf="password.errors?.pattern" class="invalid-feedback d-block">
+                                Mật khẩu có ít nhất 10 ký tự và 1 ký tự đặc biệt (!@#$%^&*...)
+                            </div>
+                        </ng-template>
+                    </div>
+                    <div class="form-group mb-3 ">
+                        <label for="rePassword">Nhập lại mật khẩu</label>
+                        <input type="text" name="rePassword" id="rePassword"
+                        class="form-control" placeholder="Nhập lại password" #rePassword="ngModel"
+                        [ngModel]="this.rePassword.value"
+                        [class]="{'is-valid': rePassword.touched && rePassword.invalid}" required>
+                        <ng-template [ngIf]="rePassword.touched && rePassword.invalid">
+                            <div *ngIf="rePassword.errors?.required" class="invalid-feedback d-block">
+                                Vui lòng nhập password
+                            </div>
+<!--                            <div *ngIf="rePassword.errors?.pattern" class="invalid-feedback d-block">-->
+<!--                                Mật khẩu có ít nhất 10 ký tự và 1 ký tự đặc biệt (!@#$%^&*...)-->
+<!--                            </div>-->
+<!--                            <div *ngIf="rePassword.value != password.value" class="invalid-feedback d-block">-->
+<!--                                Mật khẩu không khớp-->
+<!--                            </div>-->
+                        </ng-template>
+                    </div>
+                    <div class="form-group mb-3 ">
+                        <label for="phone">Điện thoại</label>
+                        <input type="text" name="phone" id="phone"
+                        class="form-control" placeholder="Điện thoại" #phone="ngModel"
+                        [(ngModel)]="customer.phone"
+                        [class]="{'is-valid': phone.touched && phone.invalid}" required>
+                        <ng-template [ngIf]="phone.touched && phone.invalid">
+                            <div *ngIf="phone.errors?.required" class="invalid-feedback d-block">
+                                Vui lòng nhập điện thoại
+                            </div>
+                            <div *ngIf="phone.errors?.pattern" class="invalid-feedback d-block">
+                                Số điện thoại không hợp lệ
+                            </div>
+                        </ng-template>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Ngày sinh</label>
+                        <app-date-picker [(startDate)]="customer.birthDate"></app-date-picker>
+                    </div>
+                    <div class="form-group mb-3 ">
+                        <label for="address">Địa chỉ</label>
+                        <input type="text" name="address" id="address"
+                        class="form-control" placeholder="Địa chỉ" #address="ngModel"
+                        [(ngModel)]="customer.address"
+                        [class]="{'is-valid': address.touched && address.invalid}" required>
+                        <ng-template [ngIf]="address.touched && address.invalid">
+                            <div *ngIf="address.errors?.required" class="invalid-feedback d-block">
+                                Vui lòng nhập địa chỉ
+                            </div>
+                        </ng-template>
+                    </div>
+                    <div class="row justify-content-between">
+                        <button class="btn btn-danger" (click)="cancel()">
+                          Huỷ
+                        </button>
+                        <button class="btn btn-success" type="submit">
+                            Đăng ký
+                        </button>
+                    </div>
+                </div>
+            </div>
+        <!-- ./card-body -->
+        </div>
+        <!-- ./card -->
+    </form>
+</div>

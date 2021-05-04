@@ -17,7 +17,8 @@ export class AppComponent implements OnInit {
     '/trang-chu',
     '/dang-nhap',
     '/404',
-    '/403'
+    '/403',
+    '/dang-ky'
   ];
 
   constructor(

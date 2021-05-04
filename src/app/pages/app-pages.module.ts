@@ -2,7 +2,7 @@ import {AppPagesRoutingModule, routedComponents} from './app-pages-routing.modul
 import {CommonModule} from '@angular/common';
 import {AppComponentsModule} from '../components/app-components.module';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CarouselModule, WavesModule} from 'angular-bootstrap-md';
 
 @NgModule({
@@ -15,7 +15,8 @@ import {CarouselModule, WavesModule} from 'angular-bootstrap-md';
     AppPagesRoutingModule,
     AppComponentsModule,
     CarouselModule,
-    WavesModule
+    WavesModule,
+    ReactiveFormsModule,
   ],
   providers: [
     ...AppComponentsModule.forRoot().providers

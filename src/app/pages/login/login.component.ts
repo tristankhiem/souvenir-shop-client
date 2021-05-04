@@ -18,13 +18,14 @@ declare var $: any;
   templateUrl: './login.component.html',
 })
 export class LoginComponent implements AfterViewInit {
-  // public loginModel: LoginModel = new LoginModel();
-  public customer: CustomerModel = new CustomerModel();
+  public loginModel: LoginModel = new LoginModel();
+  // public customer: CustomerModel = new CustomerModel();
 
   constructor(
     private loading: AppLoading,
     private alert: AppAlert,
     private customerService: CustomerService,
+    private currentUserService: CurrentUserService,
     private router: Router,
   ) {
     $('body').addClass('login-page adi-background-guest');
@@ -41,26 +42,10 @@ export class LoginComponent implements AfterViewInit {
 
   public login(): void {
     this.loading.show();
-    this.customerService.login(this.customer).subscribe(res => this.loginCompleted(res));
+    this.customerService.login(this.loginModel).subscribe(res => this.loginCompleted(res));
   }
 
-  // private loginCompleted(res: ResponseModel<JwtResponseModel>): void {
-  //   this.loading.hide();
-  //   if (res.status !== HTTP_CODE_CONSTANT.OK) {
-  //     res.message.forEach(value => {
-  //       this.alert.error(value);
-  //     });
-  //     return;
-  //   }
-
-  //   const user = res.result.user;
-  //   this.currentUserService.setUser(user);
-  //   localStorage.setItem(AUTH_CONSTANT.USER_DATA, JSON.stringify(user));
-
-  //   this.router.navigateByUrl('/trang-chu');
-  // }
-
-  private loginCompleted(res: ResponseModel<CustomerModel>): void {
+  private loginCompleted(res: ResponseModel<JwtResponseModel>): void {
     this.loading.hide();
     if (res.status !== HTTP_CODE_CONSTANT.OK){
       res.message.forEach(value => {
@@ -68,11 +53,15 @@ export class LoginComponent implements AfterViewInit {
       });
       return;
     }
+    
+    const user = res.result.user;
+    this.currentUserService.setUser(user);
+    localStorage.setItem(AUTH_CONSTANT.USER_DATA, JSON.stringify(user));
+
     this.router.navigateByUrl('/trang-chu');
   }
 
   public signup(): void {
-    this.loading.show();
     this.router.navigateByUrl('/dang-ky');
   }
 }

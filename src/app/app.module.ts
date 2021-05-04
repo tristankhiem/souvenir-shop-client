@@ -6,7 +6,7 @@ import {AppRoutingModule, routedComponents} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SidebarComponent} from './partials/sidebar/sidebar.component';
 import {NavbarComponent} from './partials/navbar/navbar.component';
 import {FooterComponent} from './partials/footer/footer.component';
@@ -42,6 +42,7 @@ const UTILS_PROVIDERS = [
     AppRoutingModule,
     AppComponentsModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {

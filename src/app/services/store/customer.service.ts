@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { LoginModel } from "src/app/data-services/login.model";
 import { CustomerModel } from "src/app/data-services/schema/customer.model";
 import { BaseSearchModel } from "src/app/data-services/search/base-search.model";
 import { StoreBaseService } from "../generic/store-base.service";
@@ -37,7 +38,7 @@ export class CustomerService extends StoreBaseService{
         return this.put('/api/customer/change-account-state', customer);
     }
 
-    public login(customer: CustomerModel): Observable<any>{
-        return this.post('api/customer/login', customer);
+    public login(login: LoginModel): Observable<any>{
+        return this.post('/api/customer/login', login);
     }
 }
