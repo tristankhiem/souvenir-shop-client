@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, EventEmitter, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HTTP_CODE_CONSTANT } from 'src/app/constants/http-code.constant';
@@ -15,10 +15,10 @@ declare var $: any;
   templateUrl: './signup.component.html',
 })
 
-export class SignupComponent implements AfterViewInit {
+export class SignupComponent implements OnInit {
     // public loginModel: LoginModel = new LoginModel();
     public customer: CustomerModel = new CustomerModel();
-    public rePassword: string;
+    public retypePassword: string;
     private message: Array<string> = ['Mật khẩu nhập lại không khớp'];
 
     public cardIdPattern = INPUT_PATTERN_CONSTANT.cardIdPattern;
@@ -38,24 +38,20 @@ export class SignupComponent implements AfterViewInit {
       $('body').addClass('login-page adi-background-guest');
     }
 
-    ngAfterViewInit(): void {
-      // this.rePassword = '';
-    }
-
-    private onInit(): void{
+    ngOnInit(): void{
       this.customer.birthDate = new Date().toDateString();
-      this.rePassword = '';
+      this.retypePassword = '';
     }
 
-    // public enterEvent($keyBoard: KeyboardEvent = null): void {
-    //   if ($keyBoard != null && $keyBoard.key === 'Enter') {
-    //     this.signup();
-    //   }
-    // }
+    public enterEvent($keyBoard: KeyboardEvent = null): void {
+      if ($keyBoard != null && $keyBoard.key === 'Enter') {
+        this.signup();
+      }
+    }
 
     public isValid(): boolean{
 
-      if (this.rePassword.toString() !== this.customer.password){
+      if (this.retypePassword !== this.customer.password){
         this.alert.errorMessages(this.message);
         return false;
       }
