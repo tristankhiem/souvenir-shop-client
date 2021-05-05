@@ -5,6 +5,7 @@ import {HTTP_CODE_CONSTANT} from '../../constants/http-code.constant';
 import {ResponseModel} from '../../data-services/response.model';
 import {CategoryFullModel} from '../../data-services/schema/category-full.model';
 import { Router } from '@angular/router';
+import {AUTH_CONSTANT} from '../../constants/auth.constant';
 
 declare var $: any;
 
@@ -23,9 +24,15 @@ export class NavbarComponent implements OnInit {
   ) {
   }
 
+  public isLogin = false;
   public categoryList: CategoryFullModel[] = [];
 
   ngOnInit(): void{
+    const auth = localStorage.getItem('USER_DATA');
+    const notAuth = !auth || auth === 'undefined';
+    if (!notAuth){
+      this.isLogin = true;
+    }
     this.getCategory();
   }
 
@@ -49,5 +56,11 @@ export class NavbarComponent implements OnInit {
 
   public signup(): void{
     this.router.navigateByUrl('/dang-ky');
+  }
+
+  public logout(): void{
+    localStorage.clear();
+    this.isLogin = false;
+    this.router.navigateByUrl('/trang-chu');
   }
 }

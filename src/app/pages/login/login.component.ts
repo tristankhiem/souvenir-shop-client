@@ -53,7 +53,7 @@ export class LoginComponent implements AfterViewInit {
       });
       return;
     }
-    
+
     const user = res.result.user;
     this.currentUserService.setUser(user);
     localStorage.setItem(AUTH_CONSTANT.USER_DATA, JSON.stringify(user));

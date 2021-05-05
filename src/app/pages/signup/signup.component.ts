@@ -87,7 +87,7 @@ export class SignupComponent implements OnInit {
       }
 
       this.alert.successMessages(res.message);
-      this.saveCompleted.emit();
+      // this.saveCompleted.emit();
       this.router.navigateByUrl('/dang-nhap');
     }
 
