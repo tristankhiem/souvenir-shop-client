@@ -14,9 +14,11 @@ export class AppComponent implements OnInit {
   title = 'Quản lý đô thị';
 
   private anonymousUrls = [
+    '/trang-chu',
     '/dang-nhap',
     '/404',
-    '/403'
+    '/403',
+    '/dang-ky'
   ];
 
   constructor(
@@ -39,7 +41,7 @@ export class AppComponent implements OnInit {
     const notAuth = !auth || auth === 'undefined';
     const isIgnoreAuth = this.isIgnoreAuth(event.url);
     if (notAuth) {
-      this.handleNotAuth(isIgnoreAuth);
+      // this.handleNotAuth(isIgnoreAuth);
     } else {
       this.handleAuth(event.url, isIgnoreAuth);
     }

@@ -21,11 +21,16 @@
       </button>
     </span>
   </div>
-  <span>
-    <a class="nav-link font-weight-bolder" href="#" role="button" style="color: #7A3F4B">Đăng nhập</a>
-  </span>
-  <span>
-    <a class="nav-link font-weight-bolder" href="#" role="button" style="color: #7A3F4B">Đăng ký</a>
+  <div class="d-flex" *ngIf="!isLogin">
+    <span>
+      <a class="nav-link font-weight-bolder" role="button" style="color: #7A3F4B" (click)="login()">Đăng nhập</a>
+    </span>
+    <span>
+      <a class="nav-link font-weight-bolder" role="button" style="color: #7A3F4B" (click)="signup()">Đăng ký</a>
+    </span>
+  </div>
+  <span *ngIf="isLogin">
+    <a class="nav-link font-weight-bolder" role="button"style="color: #7A3F4B" (click)="logout()">Đăng xuất</a>
   </span>
   <app-common-notification></app-common-notification>
 </div>
