@@ -152,3 +152,66 @@ ul li:hover ul.dropdown{
 ul li ul.dropdown li{
   display: block;
 }
+
+.product-item .image {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.product-item .image img {
+  transform: scale(1);
+  transition: all .3s;
+  width: 100%;
+  object-fit: scale-down;
+  min-height: 190px;
+}
+
+.product-item .image img:hover {
+  transform: scale(1.2);
+  transition: all .3s;
+}
+
+img {
+  max-width: 100%;
+}
+
+.product-item .name {
+  line-height: 1.5;
+  margin: 12px 0;
+  font-size: 15px;
+  min-height: 44px;
+  color: #333;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.product-price {
+  font-size: 17px;
+  color: #000;
+  font-weight: 700;
+}
+
+.product-action .wish {
+  background: url('/tp/T0299/img/action.png') no-repeat -33px -4px;
+  margin-right: 15px;
+  position: relative;
+  width: 28px;
+  height: 25px;
+  margin-top: 3px;
+}
+
+.product-action div {
+  display: inline-block;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.product-action .js-add-cart {
+  margin-left: 15px;
+  background: url('/assets/img/icon/action.png') no-repeat 0 0;
+  width: 23px;
+  height: 29px;
+}
