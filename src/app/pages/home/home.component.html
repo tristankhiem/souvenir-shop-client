@@ -23,12 +23,9 @@
             <div class="image">
               <a href="/kinh-trang-tri-party-rainbow-cloud-p31084038.html">
                 <img data-sizes="auto" class="lazyautosizes lazyloaded"
-                     src="https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210429/21042138_WH_thumb_450x450.JPG"
-                     data-src="https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210429/21042138_WH_thumb_450x450.JPG" sizes="200px">
+                     src="{{e.imageUrl}}"
+                     data-src="{{e.imageUrl}}" sizes="200px">
               </a>
-            </div>
-            <div class="product-action d-flex align-center float-right">
-              <button class="btn btn-success">Thêm vào giỏ hàng</button>
             </div>
             <h3 class="name">
               <a class="font-weight-bolder" style="color: black" href="/kinh-trang-tri-party-rainbow-cloud-p31084038.html">
@@ -36,7 +33,7 @@
               </a>
             </h3>
             <div class="product-price">
-              <span class="price">45.000đ</span></div>
+              <span class="price">{{e.sellingPrice | number}}đ</span></div>
           </div>
         </div>
       </div>
