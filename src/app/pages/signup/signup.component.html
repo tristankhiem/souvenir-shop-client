@@ -54,7 +54,7 @@
                         <label for="rePassword">Nhập lại mật khẩu</label>
                         <input type="text" name="rePassword" id="rePassword"
                         class="form-control" placeholder="Nhập lại password" #rePassword="ngModel"
-                        [ngModel]="this.rePassword.value"
+                        (rePassword)="this.rePassword.value"
                         [class]="{'is-valid': rePassword.touched && rePassword.invalid}" required>
                         <ng-template [ngIf]="rePassword.touched && rePassword.invalid">
                             <div *ngIf="rePassword.errors?.required" class="invalid-feedback d-block">

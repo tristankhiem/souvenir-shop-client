@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Output, ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HTTP_CODE_CONSTANT } from 'src/app/constants/http-code.constant';
@@ -27,6 +27,7 @@ export class SignupComponent implements AfterViewInit {
     public phonePattern  = INPUT_PATTERN_CONSTANT.phonePattern;
 
     @ViewChild('signUpForm', {static: true}) signUpForm: NgForm;
+    @Output() saveCompleted = new EventEmitter<any>();
 
     constructor(
       private loading: AppLoading,
@@ -54,7 +55,7 @@ export class SignupComponent implements AfterViewInit {
 
     public isValid(): boolean{
 
-      if (this.rePassword.valueOf() !== this.customer.password){
+      if (this.rePassword.toString() !== this.customer.password){
         this.alert.errorMessages(this.message);
         return false;
       }
@@ -71,7 +72,6 @@ export class SignupComponent implements AfterViewInit {
       }
       const currentDate = new Date(this.customer.birthDate);
       this.customer.birthDate = new Date(currentDate.getTime()).toDateString();
-      this.customer.isValid = true;
 
       this.signup();
     }
@@ -91,6 +91,7 @@ export class SignupComponent implements AfterViewInit {
       }
 
       this.alert.successMessages(res.message);
+      this.saveCompleted.emit();
       this.router.navigateByUrl('/dang-nhap');
     }
 
