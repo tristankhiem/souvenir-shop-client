@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit {
     public phonePattern  = INPUT_PATTERN_CONSTANT.phonePattern;
 
     @ViewChild('signUpForm', {static: true}) signUpForm: NgForm;
-    @Output() saveCompleted = new EventEmitter<any>();
+    // @Output() saveCompleted = new EventEmitter<any>();
 
     constructor(
       private loading: AppLoading,
