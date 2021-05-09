@@ -13,13 +13,14 @@ import {ROUTER_USER_PERMISSION_MAPPER} from './constants/user-permission.constan
 export class AppComponent implements OnInit {
   title = 'Quản lý đô thị';
 
-  private anonymousUrls = [
-    '/trang-chu',
-    '/dang-nhap',
-    '/404',
-    '/403',
-    '/dang-ky'
-  ];
+  // private anonymousUrls = [
+  //   '/trang-chu',
+  //   '/dang-nhap',
+  //   '/404',
+  //   '/403',
+  //   '/dang-ky',
+  //   '/chi-tiet-san-pham'
+  // ];
 
   constructor(
     private router: Router,
@@ -90,6 +91,7 @@ export class AppComponent implements OnInit {
   }
 
   private isIgnoreAuth(url: string): boolean {
-    return  this.anonymousUrls.indexOf(url) !== -1;
+    // return  this.anonymousUrls.indexOf(url) !== -1;
+    return true;
   }
 }

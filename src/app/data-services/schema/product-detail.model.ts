@@ -9,6 +9,7 @@ export class ProductDetailModel {
   public quantity: number;
   public sellingPrice: number;
   public importingPrice: number;
+  public imageUrl: string;
   public subCategory: SubCategoryModel;
   public color: ColorModel;
   public size: SizeModel;
@@ -24,6 +25,7 @@ export class ProductDetailModel {
     this.quantity = productDetail.quantity;
     this.sellingPrice = productDetail.sellingPrice;
     this.importingPrice = productDetail.importingPrice;
+    this.imageUrl = productDetail.imageUrl;
     this.subCategory = new SubCategoryModel(productDetail.subCategory);
     this.color = new ColorModel(productDetail.color);
     this.size = new SizeModel(productDetail.size);

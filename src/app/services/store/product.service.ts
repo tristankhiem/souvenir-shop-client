@@ -16,6 +16,10 @@ export class ProductService extends StoreBaseService {
     return this.get('/api/product/' + id);
   }
 
+  public getFullById(id: number): Observable<any> {
+    return this.get('/api/product/get-full/' + id);
+  }
+
   public save(product: ProductModel): Observable<any> {
     return this.post('/api/product/insert', product);
   }
