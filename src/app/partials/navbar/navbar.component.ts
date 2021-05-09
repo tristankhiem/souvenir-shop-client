@@ -20,10 +20,11 @@ export class NavbarComponent implements OnInit {
     private alert: AppAlert,
     private modal: AppModals,
     private categoryService: CategoryService,
-    private router: Router,
+    private router: Router
   ) {
   }
 
+  private subscription: any;
   public isLogin = false;
   public categoryList: CategoryFullModel[] = [];
 
@@ -63,4 +64,12 @@ export class NavbarComponent implements OnInit {
     this.isLogin = false;
     this.router.navigateByUrl('/trang-chu');
   }
+
+  public openProductListPage(id: number, e: Event): void{
+    e.preventDefault();
+    // const path = '/product/' + id;
+    // this.router.navigateByUrl(path, {skipLocationChange: false}).then(r => );
+    this.router.navigate(['/product/' + id], {skipLocationChange: false});
+  }
+
 }

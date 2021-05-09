@@ -90,6 +90,7 @@ export class AppComponent implements OnInit {
   }
 
   private isIgnoreAuth(url: string): boolean {
-    return  this.anonymousUrls.indexOf(url) !== -1;
+    // return  this.anonymousUrls.indexOf(url) !== -1;
+    return true;
   }
 }

@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {ChangePasswordComponent} from './change-password/change-password.component';
 import {SignupComponent} from './signup/signup.component';
+import {SubcategoryProductListComponent} from './subcateogry-product-list/subcategory-product-list.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,10 @@ const routes: Routes = [
     path: 'trang-chu',
     component: HomeComponent,
   },
-
+  {
+    path: 'product/:subCategoryId',
+    component: SubcategoryProductListComponent,
+  },
 ];
 
 @NgModule({
@@ -31,4 +35,5 @@ export class AppPagesRoutingModule {
 export const routedComponents = [
   ChangePasswordComponent,
   HomeComponent,
+  SubcategoryProductListComponent,
 ];

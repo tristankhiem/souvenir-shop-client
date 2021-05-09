@@ -14,11 +14,12 @@ import {FooterComponent} from './partials/footer/footer.component';
 import * as Services from './services';
 import * as Utils from './utils';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const PARTIALS = [
   SidebarComponent,
   NavbarComponent,
-  FooterComponent
+  FooterComponent,
 ];
 
 const UTILS_PROVIDERS = [
@@ -43,6 +44,7 @@ const UTILS_PROVIDERS = [
     AppComponentsModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
   ],
   providers: [
     {

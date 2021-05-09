@@ -4,20 +4,24 @@ import {AppComponentsModule} from '../components/app-components.module';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CarouselModule, WavesModule} from 'angular-bootstrap-md';
+import {NgxPaginationModule} from "ngx-pagination";
+import {NgxSliderModule} from "@angular-slider/ngx-slider";
 
 @NgModule({
   declarations: [
     ...routedComponents,
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    AppPagesRoutingModule,
-    AppComponentsModule,
-    CarouselModule,
-    WavesModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        AppPagesRoutingModule,
+        AppComponentsModule,
+        CarouselModule,
+        WavesModule,
+        ReactiveFormsModule,
+        NgxPaginationModule,
+        NgxSliderModule,
+    ],
   providers: [
     ...AppComponentsModule.forRoot().providers
   ]

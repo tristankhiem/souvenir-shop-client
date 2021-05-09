@@ -45,7 +45,8 @@
         <a class="nav-link dropdown-toggle font-weight-bolder" data-toggle="dropdown" href="#" role="button" aria-expanded="true">{{category.name}}</a>
         <ul class="dropdown-menu dropdown" role="menu" style="font-size: 14px; background-color: #FFCECD">
           <li *ngFor="let subCategory of category.subCategories" class="nav-item">
-            <a class="nav-link nav-sub-item" href="#" style="color: #A04444">{{subCategory.name}}</a>
+            <a class="nav-link nav-sub-item" style="color: #A04444"
+              (click)="openProductListPage(subCategory.id,$event)">{{subCategory.name}}</a>
           </li>
         </ul>
       </li>

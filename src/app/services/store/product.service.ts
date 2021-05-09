@@ -27,4 +27,8 @@ export class ProductService extends StoreBaseService {
   public deleteProduct(id: number): Observable<any> {
     return this.delete('/api/product/delete/' + id);
   }
+
+  public getList(id: number): Observable<any>{
+    return this.get('/api/product/get-list/' + id);
+  }
 }

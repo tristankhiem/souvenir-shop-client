@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="../../../styles.css">
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-12 col-md-3 js-fil-bar">
+                        <div class="filter-title">
+                            <h3>GIÁ</h3>
+                        </div>
+                        <ngx-slider [(value)]="minValue" [(highValue)]="maxValue"
+                                    [options]="options"></ngx-slider>
+                      <!--                        <div class="filter-group">-->
+<!--                            <div class="filter-title">-->
+<!--                                <h3>GIÁ</h3>-->
+<!--                            </div>-->
+<!--                            <div class="widget_price_filter">-->
+<!--                                Từ-->
+<!--                                <span id="price_form" data-size="0">0đ</span>-->
+<!--                                :-->
+<!--                                <span id="price_to" data-size="500000" data-max="500000">500,000đ</span>-->
+<!--                                <div id="slider-range" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"-->
+<!--                                aria-disabled="false">-->
+<!--                                    <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%"></div>-->
+<!--                                    <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%"></a>-->
+<!--                                    <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 100%"></a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                    </div>
+                    <div *ngFor="let item of productList | paginate: { itemsPerPage: 12, currentPage: p }" class="product-item col-3">
+                        <div class="image">
+                            <a href="/kinh-trang-tri-party-rainbow-cloud-p31084038.html">
+                                <img data-sizes="auto" class="lazyautosizes lazyloaded"
+                                     src="{{item.imageUrl}}"
+                                     data-src="{{item.imageUrl}}" sizes="200px">
+                            </a>
+                        </div>
+                        <h3 class="name">
+                            <a href="/kinh-trang-tri-party-rainbow-cloud-p31084038.html" style="color: black;" class="font-weight-body"
+                              (click)="openDetail($event)">
+                              {{item.name}}
+                            </a>
+                        </h3>
+                        <div class="product-price">
+                            <span class="price">{{item.sellingPrice | number}}đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <span>&nbsp;</span>
+                </div>
+                <div class="row justify-content-center">
+                    <pagination-controls (pageChange)="p = $event"
+                                         nextLabel="Trang kế"
+                                         previousLabel="Trang trước"
+                                         maxSize="5"
+                                         autoHide="true"
+                                         responsive="true"></pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

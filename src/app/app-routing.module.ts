@@ -5,6 +5,7 @@ import {AccessDeniedComponent} from './pages/error/403/access-denied.component';
 import {LoginComponent} from './pages/login/login.component';
 import {LayoutComponent} from './partials/layout/layout.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import {SubcategoryProductListComponent} from './pages/subcateogry-product-list/subcategory-product-list.component';
 
 const routes: Routes = [
   {
@@ -48,5 +49,5 @@ export const routedComponents = [
   LoginComponent,
   NotFoundComponent,
   AccessDeniedComponent,
-  SignupComponent
+  SignupComponent,
 ];
