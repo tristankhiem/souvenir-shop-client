@@ -1,0 +1,83 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <!-- /.row -->
+    <div class="container">
+      <div class="row">
+        <div class="cart-page col-12">
+          <div *ngIf="productDetailsInCart == null || productDetailsInCart.length === 0"
+               class="alert alert-warning alert-dismissible fade show text-center">
+            <img src="../assets/img/icon/cart_icon.png" alt="cart" width="20">
+            Giỏ hàng của bạn hiện tại không có sản phẩm nào !
+          </div>
+          <div *ngIf="productDetailsInCart != null && productDetailsInCart.length !== 0">
+            <table class="table table-cart">
+              <thead>
+              <tr>
+                <th style="width: 15%"><i class="d-none fa fa-pink fa-1x5 fa-check-square"></i> Sản phẩm</th>
+                <th class="text-center" style="width: 30%">Mô tả</th>
+                <th class="text-center d-none d-md-table-cell" style="width: 15%">Đơn giá</th>
+                <th class="text-center d-none d-md-table-cell" style="width: 15%">Số lượng</th>
+                <th class="text-center d-none d-md-table-cell" style="width: 15%">Tổng</th>
+                <th class="text-center d-none d-md-table-cell" style="width: 10%">Thao tác</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of productDetailsInCart" class="cart-item">
+                <td class="cart-img">
+                  <div class="d-flex align-items-center">
+                    <i class="d-none fa fa-pink fa-1x5 fa-check-square"></i>
+                    <a href="/gau-bong-ms-bach-tuoc-cam-xuc-doi-mat-co-den-20cm-hong-p31415539.html"
+                       title="{{item.productDetail.name}}">
+                      <img data-sizes="auto" class="lazyautosizes ls-is-cached lazyloaded"
+                           src="{{item.productDetail.imageUrl}}"
+                           data-src="{{item.productDetail.imageUrl}}"
+                           sizes="107px">
+                    </a></div>
+                </td>
+                <td class="text-center">
+                  <a href="/gau-bong-ms-bach-tuoc-cam-xuc-doi-mat-co-den-20cm-hong-p31415539.html"
+                     title="{{item.productDetail.name}}">
+                    {{item.productDetail.name}} </a>
+                </td>
+                <td class="text-center d-none d-md-table-cell">
+                  <strong class="d-block">{{item.productDetail.sellingPrice | number}}đ</strong>
+                </td>
+                <td class="text-center d-none d-md-table-cell">
+                  <div class="blk-qty d-flex justify-content-center align-items-center">
+                    <div data-label="cart" class="blk-qty-btn minus d-flex justify-content-center align-items-center">-
+                    </div>
+                    <input class="updateCart blk-qty-input d-flex justify-content-center align-items-center" type="text"
+                           data-psid="31415539" max="19" min="1" value="1" [(ngModel)]="item.quantity">
+                    <div data-label="cart" class="blk-qty-btn plus d-flex justify-content-center align-items-center">+
+                    </div>
+                  </div>
+                </td>
+                <td class="text-center d-none d-md-table-cell">
+                  <strong>{{item.productDetail.sellingPrice * item.quantity | number}}đ</strong>
+                </td>
+                <td class="text-center d-none d-md-table-cell">
+                  <a class="remove-cart" href="javascript:void(0)" data-psid="31415539">Xóa</a></td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="note">
+              <p>Đồng giá phí ship 10k cho đơn từ 150k nội thành HN, HCM</p>
+              <p>Đồng giá phí ship 10k cho đơn từ 300k các khu vực khác</p>
+              <p>Đơn hàng trên website được xử lý trong giờ hành chính</p>
+            </div>
+            <div class="cart-total text-right">
+              <div class="total d-block">Tổng: {{this.getTotal() | number}}<sub>đ</sub></div>
+              <div class="clearfix"></div>
+              <a class="btn btn-lg btn-pink btn-radius" href="/product">Tiếp tục mua sắm</a>
+              &nbsp;
+              <a class="btn btn-lg btn-outline-pink btn-radius" href="/cart/checkout">Thanh toán</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+<!-- /.content-header -->

@@ -2,21 +2,18 @@ import {Component, ElementRef, OnInit} from '@angular/core';
 import {AppAlert, AppLoading, AppModals} from '../../utils';
 import {ResponseModel} from '../../data-services/response.model';
 import {HTTP_CODE_CONSTANT} from '../../constants/http-code.constant';
-import {ProductModel} from '../../data-services/schema/product.model';
-import {BaseSearchModel} from '../../data-services/search/base-search.model';
 import {ProductService} from '../../services/store/product.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProductFullModel} from '../../data-services/schema/product-full.model';
 import {ProductDetailModel} from '../../data-services/schema/product-detail.model';
-import {AUTH_CONSTANT} from '../../constants/auth.constant';
 import {CART_CONSTANT} from '../../constants/cart.constant';
 import {SellingTransactionModel} from '../../data-services/schema/selling-transaction.model';
 
 @Component({
-  selector: 'app-product-detail',
-  templateUrl: './product-detail.component.html',
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
 })
-export class ProductDetailComponent implements OnInit {
+export class CartComponent implements OnInit {
   constructor(
     private root: ElementRef,
     private loading: AppLoading,
@@ -31,18 +28,21 @@ export class ProductDetailComponent implements OnInit {
   public product: ProductFullModel = new ProductFullModel();
   public currentProductDetail: ProductDetailModel = new ProductDetailModel();
   public quantity: number;
-  public activeSlideIndex: any;
-  public noWrapSlides: boolean;
 
   public productDetailsInCart: SellingTransactionModel[] = [];
 
   ngOnInit(): void{
     this.loading.show();
-    this.product.id = this.route.snapshot.params.productId;
-    this.activeSlideIndex = 0;
-    this.noWrapSlides = false;
     this.quantity = 1;
-    this.getProductFull();
+    this.getProductDetailsInCart();
+  }
+
+  public getTotal(): number {
+    let total = 0;
+    for (const i of this.productDetailsInCart) {
+      total += i.quantity * i.productDetail.sellingPrice;
+    }
+    return total;
   }
 
   public increaseQuantity(): void {
@@ -56,16 +56,8 @@ export class ProductDetailComponent implements OnInit {
     this.quantity--;
   }
 
-  public changeProductDetail(): void {
-    const index = +this.activeSlideIndex.relatedTarget;
-    this.currentProductDetail = new ProductDetailModel(this.product.productDetails[index]);
-  }
-
   public addToCart(): void {
-    let newItem = new SellingTransactionModel();
-    newItem.productDetail = new ProductDetailModel(this.currentProductDetail);
-    newItem.quantity = this.quantity;
-    this.productDetailsInCart.push(newItem);
+    // this.productDetailsInCart.push(this.currentProductDetail);
     localStorage.setItem(CART_CONSTANT.CART, JSON.stringify(this.productDetailsInCart));
   }
 
@@ -81,5 +73,10 @@ export class ProductDetailComponent implements OnInit {
 
     this.product = res.result;
     this.currentProductDetail = new ProductDetailModel(this.product.productDetails[0]);
+  }
+
+  private getProductDetailsInCart(): void {
+    this.productDetailsInCart = JSON.parse(localStorage.getItem(CART_CONSTANT.CART));
+    this.loading.hide();
   }
 }

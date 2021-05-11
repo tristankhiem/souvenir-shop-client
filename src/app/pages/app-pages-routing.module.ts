@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {ChangePasswordComponent} from './change-password/change-password.component';
 import {ProductDetailComponent} from './product-detail/product-detail.component';
+import {CartComponent} from './cart/cart.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
     path: 'chi-tiet-san-pham/:productId',
     component: ProductDetailComponent,
   },
+  {
+    path: 'gio-hang',
+    component: CartComponent,
+  },
 ];
 
 @NgModule({
@@ -34,5 +39,6 @@ export class AppPagesRoutingModule {
 export const routedComponents = [
   ChangePasswordComponent,
   HomeComponent,
-  ProductDetailComponent
+  ProductDetailComponent,
+  CartComponent
 ];
