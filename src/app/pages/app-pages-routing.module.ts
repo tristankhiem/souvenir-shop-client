@@ -3,6 +3,9 @@ import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {ChangePasswordComponent} from './change-password/change-password.component';
 import {SignupComponent} from './signup/signup.component';
+import {SubcategoryProductListComponent} from './subcateogry-product-list/subcategory-product-list.component';
+import {CategoryProductListComponent} from './category-product-list/category-product-list.component';
+import {AllProductListComponent} from './all-product-list/all-product-list.component';
 
 const routes: Routes = [
   {
@@ -18,7 +21,18 @@ const routes: Routes = [
     path: 'trang-chu',
     component: HomeComponent,
   },
-
+  {
+    path: 'san-pham/:subCategoryId',
+    component: SubcategoryProductListComponent,
+  },
+  {
+    path: 'san-pham/tat-ca/:categoryId',
+    component: CategoryProductListComponent,
+  },
+  {
+    path: 'san-pham/:regex',
+    component: AllProductListComponent,
+  }
 ];
 
 @NgModule({
@@ -31,4 +45,7 @@ export class AppPagesRoutingModule {
 export const routedComponents = [
   ChangePasswordComponent,
   HomeComponent,
+  SubcategoryProductListComponent,
+  CategoryProductListComponent,
+  AllProductListComponent,
 ];

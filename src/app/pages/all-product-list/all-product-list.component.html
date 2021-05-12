@@ -1,0 +1,68 @@
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="container">
+      <div class="content">
+        <div class="row">
+          <div class="col-3 ">
+<!--            <div class="filter-groups d-block full clearfix">-->
+<!--              <div class="filter-title d-flex align-items-center justify-content-between"-->
+<!--                   aria-expanded="true" data-toggle="collapse" data-target="#fi-cat">-->
+<!--                <h3>Danh mục sản phẩm</h3>-->
+<!--                <i class="fas fa-plus"></i>-->
+<!--              </div>-->
+<!--              <ul class="filter-nav collapse show" id="fi-cat">-->
+<!--                <li *ngFor="let e of subCategoryList">-->
+<!--                  <a routerLink="san-pham/{{e.id}}">{{e.name}}</a>-->
+<!--                </li>-->
+<!--              </ul>-->
+<!--            </div>-->
+            <div class="filter-groups">
+              <div class="filter-title">
+                <h3>GIÁ</h3>
+              </div>
+              <ngx-slider [(value)]="minValue" [(highValue)]="maxValue"
+                          [options]="options"  (userChange)="priceFilter(minValue,maxValue)"></ngx-slider>
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="d-pro-head">
+              <h1>Tất cả</h1>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+              <div *ngFor="let item of collection | paginate: { itemsPerPage: 12, currentPage: p }" class="product-item col-3">
+                <div class="image">
+                  <a routerLink="/kinh-trang-tri-party-rainbow-cloud-p31084038.html">
+                    <img data-sizes="auto" class="lazyautosizes lazyloaded"
+                         src="{{item.imageUrl}}"
+                         data-src="{{item.imageUrl}}" sizes="200px">
+                  </a>
+                </div>
+                <h3 class="name">
+                  <a routerLink="/kinh-trang-tri-party-rainbow-cloud-p31084038.html" style="color: black;" class="font-weight-body"
+                     (click)="openDetail($event)">
+                    {{item.name}}
+                  </a>
+                </h3>
+                <div class="product-price">
+                  <span class="price">{{item.sellingPrice | number}}đ</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <span>&nbsp;</span>
+        </div>
+        <div class="row justify-content-center">
+          <pagination-controls (pageChange)="p = $event"
+                               nextLabel="Trang kế"
+                               previousLabel="Trang trước"
+                               maxSize="5"
+                               autoHide="true"
+                               responsive="true"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
