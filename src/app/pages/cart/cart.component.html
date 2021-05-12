@@ -23,20 +23,21 @@
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let item of productDetailsInCart" class="cart-item">
+              <tr *ngFor="let item of productDetailsInCart; let i = index" class="cart-item">
                 <td class="cart-img">
                   <div class="d-flex align-items-center">
                     <i class="d-none fa fa-pink fa-1x5 fa-check-square"></i>
-                    <a href="/gau-bong-ms-bach-tuoc-cam-xuc-doi-mat-co-den-20cm-hong-p31415539.html"
+                    <a routerLink="/chi-tiet-san-pham/{{item.productDetail.product.id}}"
                        title="{{item.productDetail.name}}">
                       <img data-sizes="auto" class="lazyautosizes ls-is-cached lazyloaded"
                            src="{{item.productDetail.imageUrl}}"
                            data-src="{{item.productDetail.imageUrl}}"
                            sizes="107px">
-                    </a></div>
+                    </a>
+                  </div>
                 </td>
                 <td class="text-center">
-                  <a href="/gau-bong-ms-bach-tuoc-cam-xuc-doi-mat-co-den-20cm-hong-p31415539.html"
+                  <a routerLink="/chi-tiet-san-pham/{{item.productDetail.product.id}}"
                      title="{{item.productDetail.name}}">
                     {{item.productDetail.name}} </a>
                 </td>
@@ -45,11 +46,13 @@
                 </td>
                 <td class="text-center d-none d-md-table-cell">
                   <div class="blk-qty d-flex justify-content-center align-items-center">
-                    <div data-label="cart" class="blk-qty-btn minus d-flex justify-content-center align-items-center">-
+                    <div data-label="cart" class="blk-qty-btn minus d-flex justify-content-center align-items-center"
+                         (click)="decreaseQuantity(i)">-
                     </div>
                     <input class="updateCart blk-qty-input d-flex justify-content-center align-items-center" type="text"
                            data-psid="31415539" max="19" min="1" value="1" [(ngModel)]="item.quantity">
-                    <div data-label="cart" class="blk-qty-btn plus d-flex justify-content-center align-items-center">+
+                    <div data-label="cart" class="blk-qty-btn plus d-flex justify-content-center align-items-center"
+                         (click)="increaseQuantity(i)">+
                     </div>
                   </div>
                 </td>
@@ -57,7 +60,7 @@
                   <strong>{{item.productDetail.sellingPrice * item.quantity | number}}đ</strong>
                 </td>
                 <td class="text-center d-none d-md-table-cell">
-                  <a class="remove-cart" href="javascript:void(0)" data-psid="31415539">Xóa</a></td>
+                  <a class="remove-cart" (click)="deleteItem(i)">Xóa</a></td>
               </tr>
               </tbody>
             </table>

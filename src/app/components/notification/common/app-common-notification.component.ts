@@ -9,6 +9,8 @@ import {HTTP_CODE_CONSTANT} from '../../../constants/http-code.constant';
 import {ResponseModel} from '../../../data-services/response.model';
 import {Router} from '@angular/router';
 import {environment} from '../../../../environments/environment';
+import {SellingTransactionModel} from '../../../data-services/schema/selling-transaction.model';
+import {CART_CONSTANT} from '../../../constants/cart.constant';
 
 declare var $: any;
 
@@ -38,16 +40,11 @@ export class AppCommonNotificationComponent implements AfterViewInit {
     });
   }
 
+  public productDetailsInCart: SellingTransactionModel[] = [];
+
   ngAfterViewInit(): void {
     const elementRf = $(this.root.nativeElement.querySelector('#app_common_notification'));
-    this.badgeEl = $(this.root.nativeElement.querySelector('#app_common_notification .badge-warning'));
-    this.badgeEl.hide();
-
-    setTimeout(() => {
-      if (this.newNotifications.length > 0) {
-        this.badgeEl.show();
-      }
-    }, 250);
+    this.updateBadgeEl();
     // bind event
     elementRf.on('shown.bs.dropdown', () => {
       this.badgeEl.hide();
@@ -63,6 +60,11 @@ export class AppCommonNotificationComponent implements AfterViewInit {
       this.notifications = temp;
       this.newNotifications = [];
     });
+  }
+
+  public updateBadgeEl(): void {
+    this.badgeEl = $(this.root.nativeElement.querySelector('#app_common_notification .badge-warning'));
+    this.getProductDetailsInCart();
   }
 
   private updateStatusComplete(res: ResponseModel<any>, path: string): void {
@@ -122,5 +124,11 @@ export class AppCommonNotificationComponent implements AfterViewInit {
     item.message = prefix;
 
     this.newNotifications.push(item);
+  }
+
+  private getProductDetailsInCart(): void {
+    this.productDetailsInCart = JSON.parse(localStorage.getItem(CART_CONSTANT.CART));
+    this.badgeEl.innerHTML = this.productDetailsInCart.length;
+    this.loading.hide();
   }
 }

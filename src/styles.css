@@ -538,3 +538,7 @@ input[type=number] {
   border-color: #ffb0bd;
   text-decoration: none;
 }
+
+.badge-success {
+  background-color: #e56266;
+}

@@ -26,14 +26,11 @@ export class CartComponent implements OnInit {
   }
 
   public product: ProductFullModel = new ProductFullModel();
-  public currentProductDetail: ProductDetailModel = new ProductDetailModel();
-  public quantity: number;
 
   public productDetailsInCart: SellingTransactionModel[] = [];
 
   ngOnInit(): void{
     this.loading.show();
-    this.quantity = 1;
     this.getProductDetailsInCart();
   }
 
@@ -45,20 +42,22 @@ export class CartComponent implements OnInit {
     return total;
   }
 
-  public increaseQuantity(): void {
-    this.quantity++;
+  public increaseQuantity(transIndex: number): void {
+    this.productDetailsInCart[transIndex].quantity++;
+    this.updateCart();
   }
 
-  public decreaseQuantity(): void {
-    if (this.quantity === 1) {
+  public decreaseQuantity(transIndex: number): void {
+    if (this.productDetailsInCart[transIndex].quantity === 1) {
       return;
     }
-    this.quantity--;
+    this.productDetailsInCart[transIndex].quantity--;
+    this.updateCart();
   }
 
-  public addToCart(): void {
-    // this.productDetailsInCart.push(this.currentProductDetail);
-    localStorage.setItem(CART_CONSTANT.CART, JSON.stringify(this.productDetailsInCart));
+  public deleteItem(index: number): void {
+    this.productDetailsInCart.splice(index, 1);
+    this.updateCart();
   }
 
   private getProductFull(targetLoading?: ElementRef): void {
@@ -72,11 +71,14 @@ export class CartComponent implements OnInit {
     }
 
     this.product = res.result;
-    this.currentProductDetail = new ProductDetailModel(this.product.productDetails[0]);
   }
 
   private getProductDetailsInCart(): void {
     this.productDetailsInCart = JSON.parse(localStorage.getItem(CART_CONSTANT.CART));
     this.loading.hide();
+  }
+
+  private updateCart(): void {
+    localStorage.setItem(CART_CONSTANT.CART, JSON.stringify(this.productDetailsInCart));
   }
 }
