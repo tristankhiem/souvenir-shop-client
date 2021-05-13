@@ -32,15 +32,14 @@
             <div class="row">
               <div *ngFor="let item of collection | paginate: { itemsPerPage: 12, currentPage: p }" class="product-item col-3">
                 <div class="image">
-                  <a routerLink="/kinh-trang-tri-party-rainbow-cloud-p31084038.html">
+                  <a routerLink="chi-tiet-san-pham/{{item.id}}">
                     <img data-sizes="auto" class="lazyautosizes lazyloaded"
                          src="{{item.imageUrl}}"
                          data-src="{{item.imageUrl}}" sizes="200px">
                   </a>
                 </div>
                 <h3 class="name">
-                  <a routerLink="/kinh-trang-tri-party-rainbow-cloud-p31084038.html" style="color: black;" class="font-weight-body"
-                     (click)="openDetail($event)">
+                  <a routerLink="chi-tiet-san-pham/{{item.id}}" style="color: black;" class="font-weight-body">
                     {{item.name}}
                   </a>
                 </h3>

@@ -31,6 +31,7 @@ const routes: Routes = [
     path: 'gio-hang',
     component: CartComponent,
   },
+  {
     path: 'san-pham/:subCategoryId',
     component: SubcategoryProductListComponent,
   },
@@ -55,7 +56,7 @@ export const routedComponents = [
   ChangePasswordComponent,
   HomeComponent,
   ProductDetailComponent,
-  CartComponent
+  CartComponent,
   SubcategoryProductListComponent,
   CategoryProductListComponent,
   AllProductListComponent,

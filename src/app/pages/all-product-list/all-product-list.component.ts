@@ -80,9 +80,9 @@ export class AllProductListComponent implements  OnInit{
       }
     }
 
-    public openDetail(event: Event): void{
-
-    }
+    // public openDetail(event: Event): void{
+    //
+    // }
 
     public priceFilter(min: number, max: number): void {
       this.collection = [];
