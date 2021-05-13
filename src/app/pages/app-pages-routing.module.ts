@@ -30,7 +30,7 @@ const routes: Routes = [
     component: CategoryProductListComponent,
   },
   {
-    path: 'san-pham/:regex',
+    path: 'tat-ca/:regex',
     component: AllProductListComponent,
   }
 ];

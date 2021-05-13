@@ -74,7 +74,7 @@ export class NavbarComponent implements OnInit {
   }
 
   public search(regex: string): void {
-    this.router.navigate(['/san-pham/' + regex], {skipLocationChange: false});
+    this.router.navigate(['/tat-ca/' + regex], {skipLocationChange: false});
   }
 
 }
