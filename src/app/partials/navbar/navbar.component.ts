@@ -20,12 +20,14 @@ export class NavbarComponent implements OnInit {
     private alert: AppAlert,
     private modal: AppModals,
     private categoryService: CategoryService,
-    private router: Router,
+    private router: Router
   ) {
   }
 
+  private subscription: any;
   public isLogin = false;
   public categoryList: CategoryFullModel[] = [];
+  public filter = '';
 
   ngOnInit(): void{
     const auth = localStorage.getItem('USER_DATA');
@@ -63,4 +65,16 @@ export class NavbarComponent implements OnInit {
     this.isLogin = false;
     this.router.navigateByUrl('/trang-chu');
   }
+
+  public openProductListPage(id: number, e: Event): void{
+    e.preventDefault();
+    // const path = '/product/' + id;
+    // this.router.navigateByUrl(path, {skipLocationChange: false}).then(r => );
+    this.router.navigate(['/san-pham/' + id], {skipLocationChange: false});
+  }
+
+  public search(regex: string): void {
+    this.router.navigate(['/tat-ca/' + regex], {skipLocationChange: false});
+  }
+
 }

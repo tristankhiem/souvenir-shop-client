@@ -35,4 +35,12 @@ export class CategoryService extends StoreBaseService {
   public deleteCategory(id: number): Observable<any> {
     return this.delete('/api/category/delete/' + id);
   }
+
+  public getSubcategories(id: number): Observable<any> {
+    return this.get('/api/category/get-subcategories/' + id);
+  }
+
+  public getSubcategoriesByCategory(id: number): Observable<any> {
+    return this.get('/api/category/get-subcategories-by-category/' + id );
+  }
 }
