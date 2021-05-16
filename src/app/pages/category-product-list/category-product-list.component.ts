@@ -55,6 +55,7 @@ export class CategoryProductListComponent implements OnInit{
 
     public onInit(): void{
         this.categoryId = this.route.snapshot.params.categoryId;
+        this.productList = [];
         this.getProductList();
         this.getSubcategories();
         this.getCategoryName();
@@ -63,7 +64,7 @@ export class CategoryProductListComponent implements OnInit{
     private getProductList(): void{
         this.loading.show();
         // this.search.recordOfPage = 8;
-        this.productService.getList(this.categoryId).subscribe(res => this.getProductListCompleted(res));
+        this.productService.getListByCategory(this.categoryId).subscribe(res => this.getProductListCompleted(res));
     }
 
     private getProductListCompleted(res: ResponseModel<ProductModel[]>): void{

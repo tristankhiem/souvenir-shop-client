@@ -689,7 +689,8 @@ input[type=number] {
 
 .filter-nav li{
   position:relative;
-  border-bottom:1px solid #eee
+  border-bottom:1px solid #eee;
+  width:100%;
 }
 
 .filter-nav li a{
@@ -701,7 +702,7 @@ input[type=number] {
 }
 
 .filter-nav li a:hover,.filter-nav li.active>a{
-  color:#ffb0bd
+  color:white;
 }
 
 .filter-nav li .drop{

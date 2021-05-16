@@ -72,9 +72,9 @@
             <div class="cart-total text-right">
               <div class="total d-block">Tổng: {{this.getTotal() | number}}<sub>đ</sub></div>
               <div class="clearfix"></div>
-              <a class="btn btn-lg btn-pink btn-radius" href="/product">Tiếp tục mua sắm</a>
+              <a class="btn btn-lg btn-pink btn-radius" routerLink="/tat-ca/ ">Tiếp tục mua sắm</a>
               &nbsp;
-              <a class="btn btn-lg btn-outline-pink btn-radius" href="/cart/checkout">Thanh toán</a>
+              <a class="btn btn-lg btn-outline-pink btn-radius" href="#" (click)="addOrderInfoComponent.show(productDetailsInCart, $event)">Mua hàng</a>
             </div>
           </div>
         </div>
@@ -84,3 +84,4 @@
   <!-- /.container-fluid -->
 </section>
 <!-- /.content-header -->
+<app-add-order-info #addOrderInfoComponent></app-add-order-info>

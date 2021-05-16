@@ -56,10 +56,10 @@ export class AppComponent implements OnInit {
 
   private handleAuth(url: string, isIgnoreAuth: boolean): void {
     // Navigate after signin
-    if (url === '/dang-nhap') {
-      this.router.navigateByUrl('/trang-chu');
-      return;
-    }
+    // if (url === '/dang-nhap') {
+    //   this.router.navigateByUrl('/trang-chu');
+    //   return;
+    // }
     if (!isIgnoreAuth) {
       if (!this.hasPermission(url)) {
         this.router.navigateByUrl('/403');
