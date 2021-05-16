@@ -1,0 +1,31 @@
+<div class="container" style="width: 988px;">
+    <div>
+        <div class="order-list" style="width: 988px;">
+            <div class="order-list-tabs">
+                <span name="all" class="order-tab-item " id="all"
+                  (click)="loadOrders(0)">Tất cả</span>
+                <span class="order-tab-item" name="paying" id="paying"
+                      (click)="loadOrders(1)">Chờ thanh toán</span>
+                <span class="order-tab-item" name="transporting" id="transporting"
+                      (click)="loadOrders(2)">Chờ vận chuyển</span>
+                <span class="order-tab-item" name="delivering" id="delivering"
+                     (click)="loadOrders(3)">Chờ giao hàng</span>
+            </div>
+            <div *ngIf="orderList.length === 0 || orderList == null">
+                <div class="order-no-data">
+                    <div class="order-no-data-text">Bạn vẫn chưa có đơn đặt hàng nào</div>
+                    <div class="order-no-data-btn">
+                        <a class="order-no-data-btn-text" routerLink="/trang-chu" style="background-color: transparent;text-decoration: none;
+                            cursor: pointer;">TIẾP TỤC MUA SẢN PHẨM</a>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="orderList.length !== 0 && orderList != null">
+                <ul *ngFor="let order of collection">
+                    <li></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>

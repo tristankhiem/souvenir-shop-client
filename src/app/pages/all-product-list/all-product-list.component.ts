@@ -50,7 +50,6 @@ export class AllProductListComponent implements  OnInit{
 
     public onInit(): void {
       this.filter = this.route.snapshot.params.regex;
-      this.alert.info(this.filter);
       if (this.filter === '' || this.filter === '%20' || this.filter === ' '){
         this.getProductList();
       }else{

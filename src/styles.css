@@ -733,3 +733,41 @@ input[type=number] {
   margin-bottom: 20px;
   padding-bottom: 5px;
 }
+
+.order-no-data {
+  height: 239px;
+  width: 100%;
+  padding-top: 80px;
+  text-align: center;
+}
+
+.order-no-data-text {
+  font-size: 14px;
+  color: #757575;
+  margin-bottom: 27px;
+}
+
+.order-no-data-btn {
+  border: 1px solid #f57224;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .5px;
+  padding: 0 8px;
+  height: 32px;
+  line-height: 32px;
+  display: inline-block;
+}
+
+.order-no-data-btn-text {
+  color: #f57224;
+}
+
+.order-paid h2{
+  color: #ff72db;
+}
+
+.order-list .order-list-tabs .order-tab-item-active, .order-list .order-list-tabs .order-tab-item:hover {
+  border-bottom: 4px solid #003e52;
+}

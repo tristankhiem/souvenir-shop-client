@@ -8,6 +8,7 @@ import {SignupComponent} from './signup/signup.component';
 import {SubcategoryProductListComponent} from './subcateogry-product-list/subcategory-product-list.component';
 import {CategoryProductListComponent} from './category-product-list/category-product-list.component';
 import {AllProductListComponent} from './all-product-list/all-product-list.component';
+import {OrderTrackingComponent} from "./order-tracking/order-tracking.component";
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'tat-ca/:regex',
     component: AllProductListComponent,
+  },
+  {
+    path: 'xem-hoa-don',
+    component: OrderTrackingComponent,
   }
 ];
 
@@ -60,4 +65,5 @@ export const routedComponents = [
   SubcategoryProductListComponent,
   CategoryProductListComponent,
   AllProductListComponent,
+  OrderTrackingComponent,
 ];
