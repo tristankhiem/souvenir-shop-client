@@ -1,0 +1,48 @@
+<app-modal-wrapper [size]="'modal-md'" #addOrderInfoModalWrapper title="Nhập thông tin giao hàng" (hideEvent)="onHideEvent()">
+  <form #updateSellingOrderForm="ngForm" novalidate (submit)="onSave()" >
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="receivePersonInput">Tên người nhận</label>
+          <input type="text" class="form-control" name="receivePersonInput" id="receivePersonInput" #receivePersonInput="ngModel"
+                 [(ngModel)]="sellingOrder.receivePerson" placeholder="Tên người nhận"
+                 [class]="{'is-invalid': receivePersonInput.touched && receivePersonInput.errors}" required/>
+          <ng-template [ngIf]="receivePersonInput.touched && receivePersonInput.invalid">
+            <div *ngIf="receivePersonInput.errors?.required" class="invalid-feedback d-block">
+              Vui lòng nhập tên người nhận
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="addressInput">Địa chỉ nhận hàng</label>
+          <input type="text" class="form-control" name="addressInput" id="addressInput" #addressInput="ngModel"
+                 [(ngModel)]="sellingOrder.address" placeholder="Tên nhóm"
+                 [class]="{'is-invalid': addressInput.touched && addressInput.errors}" required/>
+          <ng-template [ngIf]="addressInput.touched && addressInput.invalid">
+            <div *ngIf="addressInput.errors?.required" class="invalid-feedback d-block">
+              Vui lòng nhập địa chỉ
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="phoneInput">Số điện thoại</label>
+          <input type="text" class="form-control" name="phoneInput" id="phoneInput" #phoneInput="ngModel"
+                 [(ngModel)]="sellingOrder.customer.phone" placeholder="Tên nhóm"
+                 [class]="{'is-invalid': phoneInput.touched && phoneInput.errors}" required disabled/>
+          <ng-template [ngIf]="phoneInput.touched && phoneInput.invalid">
+            <div *ngIf="phoneInput.errors?.required" class="invalid-feedback d-block">
+              Vui lòng nhập địa chỉ
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer float-right">
+      <button type="submit" class="btn btn-lg btn-pink btn-radius" style="color: white">Xác nhận</button>
+    </div>
+  </form>
+</app-modal-wrapper>

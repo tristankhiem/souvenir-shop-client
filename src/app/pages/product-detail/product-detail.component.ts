@@ -68,6 +68,7 @@ export class ProductDetailComponent implements OnInit {
     const newItem = new SellingTransactionModel();
     newItem.productDetail = new ProductDetailModel(this.currentProductDetail);
     newItem.quantity = this.quantity;
+    newItem.price = this.currentProductDetail.sellingPrice;
     if (typeof (this.quantity) !== 'number') {
       this.alert.error('Số lượng phải là số lớn hơn 0');
       return;

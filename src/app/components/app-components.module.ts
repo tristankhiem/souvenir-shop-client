@@ -9,6 +9,7 @@ import {ModalWrapperComponent} from './commons/modal-wrapper/modal-wrapper.compo
 import {DatePickerComponent} from './commons/date-picker/date-picker.component';
 import {AutoCompleteModule} from 'primeng';
 import {AppCommonNotificationComponent} from './notification/common/app-common-notification.component';
+import {AddOrderInfoComponent} from './popups/add-order-info/add-order-info.component';
 
 const COMPONENTS = [
   AppUserProfileComponent,
@@ -17,6 +18,7 @@ const COMPONENTS = [
   DropdownMenuComponent,
   ModalWrapperComponent,
   DatePickerComponent,
+  AddOrderInfoComponent
 ];
 
 @NgModule({
