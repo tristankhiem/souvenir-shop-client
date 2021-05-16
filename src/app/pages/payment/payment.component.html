@@ -1,0 +1,81 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <!-- /.row -->
+    <div class="container">
+      <div class="row">
+        <div class="cart-page col-12">
+          <div class="row">
+            <div class="col-4">
+              <h3>Mã đơn hàng: #{{sellingOrder.id}}</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <h5>Tên người nhận: {{sellingOrder.receivePerson}}</h5>
+            </div>
+            <div class="col-6">
+              <h5>Số điện thoại: {{sellingOrder.customer.phone}}</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <h5>Địa chỉ nhận hàng: {{sellingOrder.address}}</h5>
+            </div>
+          </div>
+          <hr>
+          <div>
+            <table class="table table-cart">
+              <thead>
+              <tr>
+                <th style="width: 15%"><i class="d-none fa fa-pink fa-1x5 fa-check-square"></i> Sản phẩm</th>
+                <th class="text-center" style="width: 30%">Mô tả</th>
+                <th class="text-center d-none d-md-table-cell" style="width: 15%">Đơn giá</th>
+                <th class="text-center d-none d-md-table-cell" style="width: 15%">Số lượng</th>
+                <th class="text-center d-none d-md-table-cell" style="width: 15%">Tổng</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of sellingOrder.sellingTransactions; let i = index" class="cart-item">
+                <td class="cart-img">
+                  <div class="d-flex align-items-center">
+                    <i class="d-none fa fa-pink fa-1x5 fa-check-square"></i>
+                    <a>
+                      <img data-sizes="auto" class="lazyautosizes ls-is-cached lazyloaded"
+                           src="{{item.productDetail.imageUrl}}"
+                           data-src="{{item.productDetail.imageUrl}}"
+                           sizes="107px">
+                    </a>
+                  </div>
+                </td>
+                <td class="text-center">
+                  <a
+                     title="{{item.productDetail.name}}">
+                    {{item.productDetail.name}} </a>
+                </td>
+                <td class="text-center d-none d-md-table-cell">
+                  <strong class="d-block">{{item.productDetail.sellingPrice | number}}đ</strong>
+                </td>
+                <td class="text-center d-none d-md-table-cell">
+                  <strong>{{item.quantity | number}}</strong>
+                </td>
+                <td class="text-center d-none d-md-table-cell">
+                  <strong>{{item.productDetail.sellingPrice * item.quantity | number}}đ</strong>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="cart-total text-right">
+              <div class="total d-block">Tổng: {{sellingOrder.total | number}}<sub>đ</sub></div>
+              <div class="clearfix"></div>
+              <a class="btn btn-lg btn-outline-pink btn-radius" href="#" (click)="addPaymentInfoComponent.show(sellingOrder.id, $event)">Thanh toán</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+<!-- /.content-header -->
+<app-add-payment-info #addPaymentInfoComponent></app-add-payment-info>

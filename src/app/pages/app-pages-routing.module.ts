@@ -8,6 +8,7 @@ import {SignupComponent} from './signup/signup.component';
 import {SubcategoryProductListComponent} from './subcateogry-product-list/subcategory-product-list.component';
 import {CategoryProductListComponent} from './category-product-list/category-product-list.component';
 import {AllProductListComponent} from './all-product-list/all-product-list.component';
+import {PaymentComponent} from './payment/payment.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'gio-hang',
     component: CartComponent,
+  },
+  {
+    path: 'thanh-toan/:orderId',
+    component: PaymentComponent,
   },
   {
     path: 'san-pham/:subCategoryId',
@@ -57,6 +62,7 @@ export const routedComponents = [
   HomeComponent,
   ProductDetailComponent,
   CartComponent,
+  PaymentComponent,
   SubcategoryProductListComponent,
   CategoryProductListComponent,
   AllProductListComponent,

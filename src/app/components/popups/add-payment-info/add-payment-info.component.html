@@ -1,0 +1,32 @@
+<app-modal-wrapper [size]="'modal-md'" #addPaymentInfoModalWrapper title="Nhập thông tin thanh toán" (hideEvent)="onHideEvent()">
+  <form #addPaymentInfoForm="ngForm" novalidate (submit)="onSubmit()" >
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <input class="w-100" [(ngModel)]="cardName" name="cardName" type="text" placeholder="Name on card" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <div #cardNumber class="cardTextBox w-100"></div>
+        </div>
+        <div class="col-sm-3 form-group">
+          <div #cardExpiry class="cardTextBox w-100"></div>
+        </div>
+        <div class="col-sm-3 form-group">
+          <div #cardCvc class="cardTextBox w-100"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div *ngIf="cardError">
+          <span class="text-danger">{{cardError}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer float-right">
+      <button type="submit" class="btn btn-lg btn-pink btn-radius"
+              [disabled]="processing || cardInfoInvalid"
+              style="color: white">Xác nhận</button>
+    </div>
+  </form>
+</app-modal-wrapper>

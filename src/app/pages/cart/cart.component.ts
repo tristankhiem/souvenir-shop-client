@@ -26,6 +26,7 @@ export class CartComponent implements OnInit {
   }
 
   public product: ProductFullModel = new ProductFullModel();
+  public isLogin: boolean;
 
   public productDetailsInCart: SellingTransactionModel[] = [];
 

@@ -28,4 +28,8 @@ export class SellingOrderService extends StoreBaseService {
   public deleteSellingOrder(id: number): Observable<any> {
     return this.delete('/api/sellingorder/delete/' + id);
   }
+
+  public payment(info): Observable<any> {
+    return this.post('/api/sellingorder/payment', info);
+  }
 }

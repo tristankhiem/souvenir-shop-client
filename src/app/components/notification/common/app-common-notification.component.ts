@@ -128,7 +128,6 @@ export class AppCommonNotificationComponent implements AfterViewInit {
 
   private getProductDetailsInCart(): void {
     this.productDetailsInCart = JSON.parse(localStorage.getItem(CART_CONSTANT.CART));
-    this.badgeEl.innerHTML = this.productDetailsInCart.length;
     this.loading.hide();
   }
 }

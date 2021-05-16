@@ -1,5 +1,5 @@
 <app-modal-wrapper [size]="'modal-md'" #addOrderInfoModalWrapper title="Nhập thông tin giao hàng" (hideEvent)="onHideEvent()">
-  <form #updateSellingOrderForm="ngForm" novalidate (submit)="onSave()" >
+  <form #addOrderInfoForm="ngForm" novalidate (submit)="onSave()" >
     <div class="modal-body">
       <div class="row">
         <div class="col-sm-12 form-group">

@@ -98,6 +98,9 @@ export class ProductDetailComponent implements OnInit {
 
   private getProductDetailsInCart(): void {
     this.productDetailsInCart = JSON.parse(localStorage.getItem(CART_CONSTANT.CART));
+    if (this.productDetailsInCart == null) {
+      this.productDetailsInCart = [];
+    }
     this.loading.hide();
   }
 }

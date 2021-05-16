@@ -734,3 +734,17 @@ input[type=number] {
   margin-bottom: 20px;
   padding-bottom: 5px;
 }
+
+.cardTextBox {
+  display: inline-block;
+  border: 1px solid #BDBDBD;
+  border-radius: 2px;
+  margin-top: 6px;
+  margin-right: 6px;
+  padding: 8px;
+  color: #616161;
+}
+
+.ngx-pagination .current {
+  background: #ffb0bd !important;
+}

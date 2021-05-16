@@ -16,6 +16,7 @@ import {UserModel} from '../../../data-services/schema/user.model';
 import {CART_CONSTANT} from '../../../constants/cart.constant';
 import {AUTH_CONSTANT} from '../../../constants/auth.constant';
 import {SellingTransactionModel} from '../../../data-services/schema/selling-transaction.model';
+import {Router} from '@angular/router';
 
 declare var $: any;
 
@@ -28,6 +29,7 @@ export class AddOrderInfoComponent implements AfterViewInit {
     private loading: AppLoading,
     private alert: AppAlert,
     private common: AppCommon,
+    private router: Router,
     private sellingOrderService: SellingOrderService,
     private customerService: CustomerService,
   ) {
@@ -35,7 +37,7 @@ export class AddOrderInfoComponent implements AfterViewInit {
 
   @Output() saveCompleted = new EventEmitter<any>();
   @ViewChild('addOrderInfoModalWrapper', {static: true}) updateSellingOrderModalWrapper: ModalWrapperComponent;
-  @ViewChild('updateSellingOrderForm', {static: true}) updateSellingOrderForm: NgForm;
+  @ViewChild('addOrderInfoForm', {static: true}) updateSellingOrderForm: NgForm;
 
   public sellingOrder: SellingOrderFullModel = new SellingOrderFullModel();
   public customer: CustomerModel = new CustomerModel();
@@ -48,6 +50,15 @@ export class AddOrderInfoComponent implements AfterViewInit {
 
   public show(transactions: SellingTransactionModel[], event: Event): void {
     event.preventDefault();
+    const auth = localStorage.getItem('USER_DATA');
+    const notAuth = !auth || auth === 'undefined';
+    if (notAuth){
+      this.alert.warn('Vui lòng đăng nhập trước khi thanh toán');
+      setTimeout(() => {
+        this.loading.hide();
+        this.router.navigateByUrl('/dang-nhap');
+      }, 2000);
+    }
     this.sellingOrder.sellingTransactions = transactions;
     this.getCustomer();
     this.updateSellingOrderModalWrapper.show();
@@ -140,9 +151,17 @@ export class AddOrderInfoComponent implements AfterViewInit {
       this.alert.errorMessages(res.message);
       return;
     }
-
-    this.alert.successMessages(res.message);
+    this.sellingOrder = res.result;
+    this.clearCart();
+    const message = [];
+    message.push('Lưu thông tin giao hàng thành công!');
+    this.alert.successMessages(message);
     this.saveCompleted.emit();
     this.hide();
+    this.router.navigateByUrl('/thanh-toan/' + this.sellingOrder.id);
+  }
+
+  private clearCart(): void {
+    localStorage.removeItem(CART_CONSTANT.CART);
   }
 }
