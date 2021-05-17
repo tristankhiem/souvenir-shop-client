@@ -772,3 +772,238 @@ input[type=number] {
 .order-list .order-list-tabs .order-tab-item-active, .order-list .order-list-tabs .order-tab-item:hover {
   border-bottom: 4px solid #003e52;
 }
+
+.order-list .order-list-tabs .order-tab-item {
+  display: inline-block;
+  font-size: 13px;
+  height: 29px;
+  line-height: 29px;
+  color: #5d5d5d;
+  padding: 0 20px;
+}
+
+.shop-cursor {
+  cursor: pointer;
+}
+
+.shop {
+  margin-bottom: 12px;
+  padding-bottom: 24px;
+  background-color: #fff;
+}
+
+.shop .shop-header, .shop .shop-header .shop-left {
+  display: flex;
+  align-items: center;
+}
+
+.shop .shop-header {
+  position: relative;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 12px;
+}
+
+.shop .shop-header .shop-left .shop-left-leading-time {
+  margin-left: 12px;
+  font-size: 14px;
+  color: #4caf50;
+}
+
+.shop .shop-header .shop-right {
+  display: flex;
+  align-items: center;
+}
+
+.shop .shop-header .shop-right .shop-right-tips {
+  margin-right: 12px;
+  font-size: 12px;
+  color: #757575;
+}
+
+.shop .shop-header .shop-right .shop-right-status {
+  background-color: #ecf0f7;
+  color: #333;
+  font-size: 14px;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+.shop .shop-header .shop-right .shop-right-action {
+  margin-left: 12px;
+  color: #f57224;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lzd-playground {
+  width: 100%;
+  min-width: 1188px;
+  min-height: 474px;
+  background: #eff0f4;
+  position: relative;
+  padding-bottom: 40px;
+}
+
+
+
+.order-item {
+  min-height: 80px;
+  padding: 24px 12px 0 36px;
+  width: 916px;
+}
+
+.order-item .item-main-mini {
+  width: 280px !important;
+}
+
+.order-item .item-main {
+  float: left !important;
+  width: 360px !important;
+  margin-left: 12px !important;
+  margin-right: 24px !important;
+}
+
+.order-item .item-sku, .order-item .item-title {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 2 !important;
+}
+
+.text.title {
+  font-size: 14px !important;
+  margin-bottom: 3px !important;
+}
+
+.text {
+  color: #212121 !important;
+  word-break: break-word !important;
+}
+
+.text.desc {
+  font-size: 12px !important;
+}
+
+.text.bold {
+  font-weight: 500 !important;
+}
+
+.order-item .item-quantity .multiply {
+  font-size: 14px;
+  color: #757575;
+}
+
+.info {
+  margin-top: 6px;
+}
+
+.text.info {
+  color: #757575;
+}
+
+.text.multiply {
+  color: #c9c9c9;
+}
+
+.order-item .item-status {
+  float: left;
+  min-height: 80px;
+  text-align: left;
+}
+
+.order-item .item-price {
+  margin-bottom: 4px;
+  width: 180px;
+}
+
+.order-item .item-quantity {
+  font-size: 14px;
+  float: left;
+  width: 64px;
+  min-height: 80px;
+  text-align: left;
+}
+
+.clear {
+  clear: both;
+}
+
+.order-item .item-info {
+  float: right;
+  min-height: 80px;
+  text-align: right;
+  max-width: 204px;
+}
+
+.order-item .item-pic {
+  float: left;
+}
+
+.order-item .item-pic img {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 6px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  background-image: url(https://laz-img-cdn.alicdn.com/imgextra/i4/O1CN01tcPWxH1emesBtwcAg_!!6000000003914-2-tps-243-243.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.lzd-playground-right {
+  position: relative;
+  margin-left: 100px;
+}
+
+.lzd-playground-right .breadcrumb {
+  height: 60px;
+  line-height: 60px;
+  font-family: Roboto-Regular;
+  font-size: 13px;
+  color: #fffefe !important;
+  letter-spacing: .09px;
+}
+
+.lzd-playground-right .breadcrumb a {
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 400;
+  color: #424242;
+}
+
+.lzd-playground-right .container {
+  width: 988px;
+}
+
+.order-list {
+  width: 988px;
+}
+
+.order-list .order-list-tabs {
+  height: 28px;
+  border-bottom: 2px solid #979797;
+  margin-bottom: 13px;
+  cursor: pointer;
+}
+
+.lzd-playground-main {
+  position: relative;
+  width: 1188px;
+  min-width: 1188px;
+  margin: 0 auto;
+}
+
+.order-item .item-sku {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #bbb;
+  line-height: 18px;
+}
+
+
+

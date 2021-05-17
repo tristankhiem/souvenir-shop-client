@@ -6,6 +6,7 @@ import {ResponseModel} from '../../data-services/response.model';
 import {SellingOrderModel} from '../../data-services/schema/selling-order.model';
 import {HTTP_CODE_CONSTANT} from '../../constants/http-code.constant';
 import {UserModel} from '../../data-services/schema/user.model';
+import {SellingOrderFullModel} from '../../data-services/schema/selling-order-full.model';
 
 declare var $: any;
 
@@ -25,8 +26,8 @@ export class OrderTrackingComponent implements OnInit{
     ) {
     }
 
-    public orderList: SellingOrderModel[] = [];
-    public collection = [];
+    public orderList: SellingOrderFullModel[] = [];
+    public collection: SellingOrderFullModel[] = [];
     public customerId: number;
     public userData: UserModel = new UserModel();
 
@@ -51,7 +52,7 @@ export class OrderTrackingComponent implements OnInit{
       this.sellingOrderService.getByCustomerId(this.customerId).subscribe(res => this.getSellingOrdersCompleted(res));
     }
 
-    public getSellingOrdersCompleted(res: ResponseModel<SellingOrderModel[]>): void {
+    public getSellingOrdersCompleted(res: ResponseModel<SellingOrderFullModel[]>): void {
       this.loading.hide();
       if (res.status !== HTTP_CODE_CONSTANT.OK) {
         this.alert.errorMessages(res.message);
@@ -66,46 +67,82 @@ export class OrderTrackingComponent implements OnInit{
       this.collection = [];
       if (priority === 0){
         $('#all').addClass('order-tab-item-active');
-        $('#paying').removeClass('order-tab-item-active');
-        $('#transporting').removeClass('order-tab-item-active');
+        $('#toConfirm').removeClass('order-tab-item-active');
+        $('#confirmed').removeClass('order-tab-item-active');
         $('#delivering').removeClass('order-tab-item-active');
+        $('#finished').removeClass('order-tab-item-active');
+        $('#canceled').removeClass('order-tab-item-active');
 
         for (const item of this.orderList){
           this.collection.push(item);
         }
       }
       if (priority === 1){
-        $('#paying').addClass('order-tab-item-active');
+        $('#toConfirm').addClass('order-tab-item-active');
         $('#all').removeClass('order-tab-item-active');
-        $('#transporting').removeClass('order-tab-item-active');
+        $('#confirmed').removeClass('order-tab-item-active');
         $('#delivering').removeClass('order-tab-item-active');
+        $('#finished').removeClass('order-tab-item-active');
+        $('#canceled').removeClass('order-tab-item-active');
 
         for (const item of this.orderList){
-          if (item.status === 'Chờ thanh toán'){
+          if (item.status === 'Chờ xác nhận'){
             this.collection.push(item);
           }
         }
       }
       if (priority === 2){
-        $('#transporting').addClass('order-tab-item-active');
+        $('#confirmed').addClass('order-tab-item-active');
+        $('#toConfirm').removeClass('order-tab-item-active');
         $('#all').removeClass('order-tab-item-active');
-        $('#paying').removeClass('order-tab-item-active');
         $('#delivering').removeClass('order-tab-item-active');
+        $('#finished').removeClass('order-tab-item-active');
+        $('#canceled').removeClass('order-tab-item-active');
 
         for (const item of this.orderList){
-          if (item.status === 'Chờ vận chuyển'){
+          if (item.status === 'Đã xác nhận'){
             this.collection.push(item);
           }
         }
       }
       if (priority === 3){
         $('#delivering').addClass('order-tab-item-active');
+        $('#toConfirm').removeClass('order-tab-item-active');
+        $('#confirmed').removeClass('order-tab-item-active');
         $('#all').removeClass('order-tab-item-active');
-        $('#transporting').removeClass('order-tab-item-active');
-        $('#paying').removeClass('order-tab-item-active');
+        $('#finished').removeClass('order-tab-item-active');
+        $('#canceled').removeClass('order-tab-item-active');
 
         for (const item of this.orderList){
-          if (item.status === 'Chờ giao hàng'){
+          if (item.status === 'Đang giao'){
+            this.collection.push(item);
+          }
+        }
+      }
+      if (priority === 4){
+        $('#finished').addClass('order-tab-item-active');
+        $('#toConfirm').removeClass('order-tab-item-active');
+        $('#confirmed').removeClass('order-tab-item-active');
+        $('#delivering').removeClass('order-tab-item-active');
+        $('#all').removeClass('order-tab-item-active');
+        $('#canceled').removeClass('order-tab-item-active');
+
+        for (const item of this.orderList){
+          if (item.status === 'Đã hoàn thành'){
+            this.collection.push(item);
+          }
+        }
+      }
+      if (priority === 5){
+        $('#canceled').addClass('order-tab-item-active');
+        $('#toConfirm').removeClass('order-tab-item-active');
+        $('#confirmed').removeClass('order-tab-item-active');
+        $('#delivering').removeClass('order-tab-item-active');
+        $('#finished').removeClass('order-tab-item-active');
+        $('#all').removeClass('order-tab-item-active');
+
+        for (const item of this.orderList){
+          if (item.status === 'Đã huỷ'){
             this.collection.push(item);
           }
         }

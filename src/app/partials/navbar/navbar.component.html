@@ -29,9 +29,14 @@
       <a class="nav-link font-weight-bolder" role="button" style="color: #7A3F4B" (click)="signup()">Đăng ký</a>
     </span>
   </div>
-  <span *ngIf="isLogin">
-    <a class="nav-link font-weight-bolder" role="button"style="color: #7A3F4B" (click)="logout()">Đăng xuất</a>
-  </span>
+  <div class="d-flex" *ngIf="isLogin">
+      <span>
+          <a class="nav-link font-weight-bolder" role="button"style="color: #7A3F4B" (click)="logout()">Đăng xuất</a>
+      </span>
+      <span>
+          <a class="nav-link font-weight-bolder" role="button"style="color: #7A3F4B" routerLink="/xem-hoa-don">Xem đơn hàng</a>
+      </span>
+  </div>
   <app-common-notification></app-common-notification>
 </div>
 <nav class="navbar navbar-expand navbar-light">

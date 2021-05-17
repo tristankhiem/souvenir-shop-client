@@ -1,7 +1,7 @@
 <a id="app_common_notification" class="nav-item dropdown">
   <a class="nav-link" data-toggle="dropdown" routerLink="/gio-hang" style="font-size: 18px">
     <i class="fas fa-shopping-cart" style="color: #ffb0bd"></i>
-    <span class="badge badge-success navbar-badge" style="font-weight: bold; position: relative" [innerHTML]="productDetailsInCart.length"></span>
+    <span class="badge badge-success navbar-badge" style="font-weight: bold; position: relative">{{productDetailsInCart?.length}}</span>
   </a>
   <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="max-height: 250px; max-width: 100px;">
     <span class="dropdown-item dropdown-header p-1"
