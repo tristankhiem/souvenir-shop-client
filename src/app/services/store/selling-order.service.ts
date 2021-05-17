@@ -17,6 +17,10 @@ export class SellingOrderService extends StoreBaseService {
     return this.get('/api/sellingorder/' + id);
   }
 
+  public getByCustomerId(id: number): Observable<any> {
+    return this.get('/api/sellingorder/get-by-customer-id/' + id);
+  }
+
   public save(sellingOrder: SellingOrderFullModel): Observable<any> {
     return this.post('/api/sellingorder/insert', sellingOrder);
   }
