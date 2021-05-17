@@ -33,7 +33,7 @@
             <div *ngIf="collection.length !== 0 && collection != null">
               <div class="orders">
                 <div tag="order-component" *ngFor="let order of collection">
-                  <div  class="shop shop-cursor">
+                  <div  class="shop pb-0">
                     <div class="shop-header border-bottom">
                       <div class="shop-left">
                         <div class="shop-left-leading-time">Ngày giao {{order.deliveryDate | date:'dd/MM/yyyy'}}</div>
@@ -45,7 +45,7 @@
                       </div>
                     </div>
                     <div class="shop-body">
-                      <div class="order-item" *ngFor="let transaction of order.sellingTransactions" style="height:104px;">
+                      <div class="order-item m-0" *ngFor="let transaction of order.sellingTransactions">
                         <div class="item-pic" data-spm="detail_image">
                           <a href="#">
                             <img src="{{transaction.productDetail.imageUrl}}"/>
@@ -60,7 +60,7 @@
                           </div>
                         </div>
                         <div class="item-status">
-                          <div class="item-price text bold">{{transaction.price}}đ</div>
+                          <div class="item-price text bold">{{transaction.price | number}}đ</div>
                         </div>
                         <div class="item-quantity">
                           <span class="text desc info multiply">Số lượng:</span>
