@@ -7,7 +7,7 @@ export const environment = {
   customerBaseUrl: 'http://localhost:5556',
   districtBaseUrl: 'http://localhost:5555',
   districtUrl: 'http://localhost:4200',
-  storeBaseUrl: 'http://localhost:5000',
+  storeBaseUrl: 'http://localhost:5556',
   publishableKey: 'pk_test_51IrIUHKa2ZJyHG3EE1JMszishNnawUKKLeEZdT2kMoWmUjxAJ6ECSJxxRUDpCucjToeDlplyKjRkJY5rLfUVHGxj00LXJcfpl6'
 };
 

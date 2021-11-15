@@ -6,10 +6,9 @@ import {LoginModel} from '../../data-services/login.model';
 import {ResponseModel} from '../../data-services/response.model';
 import {JwtResponseModel} from '../../data-services/jwt-response.model';
 import {HTTP_CODE_CONSTANT} from '../../constants/http-code.constant';
-import {EmployeeAuthService} from '../../services/store/employee-auth.service';
+import {CustomerAuthService} from '../../services/store/customer-auth.service';
 import {CurrentUserService} from '../../services/store/current-user.service';
-import { CustomerService } from 'src/app/services/store/customer.service';
-import { CustomerModel } from 'src/app/data-services/schema/customer.model';
+
 
 declare var $: any;
 
@@ -24,7 +23,7 @@ export class LoginComponent implements AfterViewInit {
   constructor(
     private loading: AppLoading,
     private alert: AppAlert,
-    private customerService: CustomerService,
+    private customerAuthService: CustomerAuthService,
     private currentUserService: CurrentUserService,
     private router: Router,
   ) {
@@ -42,7 +41,7 @@ export class LoginComponent implements AfterViewInit {
 
   public login(): void {
     this.loading.show();
-    this.customerService.login(this.loginModel).subscribe(res => this.loginCompleted(res));
+    this.customerAuthService.login(this.loginModel).subscribe(res => this.loginCompleted(res));
   }
 
   private loginCompleted(res: ResponseModel<JwtResponseModel>): void {
