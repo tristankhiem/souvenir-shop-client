@@ -66,7 +66,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl('/trang-chu');
   }
 
-  public openProductListPage(id: number, e: Event): void{
+  public openProductListPage(id: string, e: Event): void{
     e.preventDefault();
     // const path = '/product/' + id;
     // this.router.navigateByUrl(path, {skipLocationChange: false}).then(r => );

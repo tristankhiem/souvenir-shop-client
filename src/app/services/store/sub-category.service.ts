@@ -9,26 +9,26 @@ import {SubCategoryModel} from '../../data-services/schema/sub-category.model';
 })
 export class SubCategoryService extends StoreBaseService {
   public search(search: BaseSearchModel<SubCategoryModel[]>): Observable<any> {
-    return this.post('/api/subcategory/search', search);
+    return this.post('/api/v1/subcategory/search', search);
   }
 
   public getLikeName(name: string): Observable<any> {
-    return this.get('/api/subcategory/get-like-name/' + name);
+    return this.get('/api/v1/subcategory/get-like-name/' + name);
   }
 
   public getById(id: number): Observable<any> {
-    return this.get('/api/subcategory/' + id);
+    return this.get('/api/v1/subcategory/' + id);
   }
 
   public save(subCategory: SubCategoryModel): Observable<any> {
-    return this.post('/api/subcategory/insert', subCategory);
+    return this.post('/api/v1/subcategory/insert', subCategory);
   }
 
   public update(subCategory: SubCategoryModel): Observable<any> {
-    return this.put('/api/subcategory/update', subCategory);
+    return this.put('/api/v1/subcategory/update', subCategory);
   }
 
   public deleteSubCategory(id: number): Observable<any> {
-    return this.delete('/api/subcategory/delete/' + id);
+    return this.delete('/api/v1/subcategory/delete/' + id);
   }
 }

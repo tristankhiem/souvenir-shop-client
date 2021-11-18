@@ -1,7 +1,7 @@
 import {SubCategoryModel} from './sub-category.model';
 
 export class CategoryFullModel {
-  public id: number;
+  public id: string;
   public name: string;
   public subCategories: SubCategoryModel[] = [];
 
