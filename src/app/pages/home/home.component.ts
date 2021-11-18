@@ -39,5 +39,8 @@ export class HomeComponent implements OnInit {
     }
 
     this.search = res.result;
+    for (const e of this.search.result) {
+      e.imageUrl = 'data:image/jpeg;base64,' + e.imageByte;
+    }
   }
 }

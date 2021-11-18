@@ -9,42 +9,42 @@ import {ProductModel} from '../../data-services/schema/product.model';
 })
 export class ProductService extends StoreBaseService {
   public search(search: BaseSearchModel<ProductModel[]>): Observable<any> {
-    return this.post('/api/product/search', search);
+    return this.post('/api/v1/product/findAll', search);
   }
 
   public getById(id: string): Observable<any> {
-    return this.get('/api/product/' + id);
+    return this.get('/api/v1/product/' + id);
   }
 
   public getFullById(id: string): Observable<any> {
-    return this.get('/api/product/get-full/' + id);
+    return this.get('/api/v1/product/get-full/' + id);
   }
 
   public save(product: ProductModel): Observable<any> {
-    return this.post('/api/product/insert', product);
+    return this.post('/api/v1/product/insert', product);
   }
 
   public update(product: ProductModel): Observable<any> {
-    return this.put('/api/product/update', product);
+    return this.put('/api/v1/product/update', product);
   }
 
   public deleteProduct(id: string): Observable<any> {
-    return this.delete('/api/product/delete/' + id);
+    return this.delete('/api/v1/product/delete/' + id);
   }
 
   public getList(id: string): Observable<any>{
-    return this.get('/api/product/get-list/' + id);
+    return this.get('/api/v1/product/get-list/' + id);
   }
 
   public getListByCategory(id: string): Observable<any> {
-    return this.get('/api/product/get-list-by-category/' + id);
+    return this.get('/api/v1/product/get-list-by-category/' + id);
   }
 
   public getAll(): Observable<any> {
-    return this.get('/api/product/get-all');
+    return this.get('/api/v1/product/findAll');
   }
 
   public getLikeName(name: string): Observable<any> {
-    return this.get('/api/product/get-like-name/' + name);
+    return this.get('/api/v1/product/get-like-name/' + name);
   }
 }

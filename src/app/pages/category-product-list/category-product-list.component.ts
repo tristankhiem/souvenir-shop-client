@@ -32,7 +32,7 @@ export class CategoryProductListComponent implements OnInit{
 
     public title = '';
     public productList: ProductModel[] = [];
-    public categoryId: number;
+    public categoryId: string;
     public p = 1; // current page for pagination
     public collection = [];
     public minValue = 0;
@@ -77,8 +77,8 @@ export class CategoryProductListComponent implements OnInit{
         this.productList = res.result;
 
         for ( const e of this.productList){
-            // const Obj = {name: e.name, imageUrl: e.imageUrl, sellingPrice: e.sellingPrice};
-            this.collection.push(e);
+          e.imageUrl = 'data:image/jpeg;base64,' + e.imageByte;
+          this.collection.push(e);
         }
     }
 

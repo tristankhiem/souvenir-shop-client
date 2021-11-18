@@ -2,7 +2,7 @@ import {SubCategoryModel} from './sub-category.model';
 import {ProductDetailModel} from './product-detail.model';
 
 export class ProductFullModel {
-  public id: number;
+  public id: string;
   public name: string;
   public quantity: number;
   public description: string;
