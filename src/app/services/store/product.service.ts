@@ -12,11 +12,11 @@ export class ProductService extends StoreBaseService {
     return this.post('/api/product/search', search);
   }
 
-  public getById(id: number): Observable<any> {
+  public getById(id: string): Observable<any> {
     return this.get('/api/product/' + id);
   }
 
-  public getFullById(id: number): Observable<any> {
+  public getFullById(id: string): Observable<any> {
     return this.get('/api/product/get-full/' + id);
   }
 
@@ -28,15 +28,15 @@ export class ProductService extends StoreBaseService {
     return this.put('/api/product/update', product);
   }
 
-  public deleteProduct(id: number): Observable<any> {
+  public deleteProduct(id: string): Observable<any> {
     return this.delete('/api/product/delete/' + id);
   }
 
-  public getList(id: number): Observable<any>{
+  public getList(id: string): Observable<any>{
     return this.get('/api/product/get-list/' + id);
   }
 
-  public getListByCategory(id: number): Observable<any> {
+  public getListByCategory(id: string): Observable<any> {
     return this.get('/api/product/get-list-by-category/' + id);
   }
 

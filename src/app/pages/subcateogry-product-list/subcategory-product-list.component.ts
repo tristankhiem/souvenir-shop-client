@@ -34,7 +34,7 @@ export class SubcategoryProductListComponent implements OnInit{
 
     public title = '';
     public productList: ProductModel[] = [];
-    public subcategoryId: number;
+    public subcategoryId: string;
     public p = 1; // current page for pagination
     public collection = [];
     public minValue = 0;
@@ -109,7 +109,7 @@ export class SubcategoryProductListComponent implements OnInit{
       this.subCategoryList = res.result;
 
       for (let e of this.subCategoryList){
-        if (e.id === Number(this.subcategoryId)){
+        if (e.id === this.subcategoryId){
           this.title = e.name;
         }
       }

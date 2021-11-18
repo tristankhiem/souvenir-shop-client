@@ -20,7 +20,7 @@ export class CategoryService extends StoreBaseService {
     return this.get('/api/v1/category/get-like-name', {name});
   }
 
-  public getById(id: number): Observable<any> {
+  public getById(id: string): Observable<any> {
     return this.get('/api/v1/category/get-by-id/' + id);
   }
 
@@ -32,15 +32,15 @@ export class CategoryService extends StoreBaseService {
     return this.put('/api/v1/category/update', category);
   }
 
-  public deleteCategory(id: number): Observable<any> {
+  public deleteCategory(id: string): Observable<any> {
     return this.delete('/api/v1/category/delete/' + id);
   }
 
-  public getSubcategories(id: number): Observable<any> {
+  public getSubcategories(id: string): Observable<any> {
     return this.get('/api/v1/category/get-subcategories/' + id);
   }
 
-  public getSubcategoriesByCategory(id: number): Observable<any> {
+  public getSubcategoriesByCategory(id: string): Observable<any> {
     return this.get('/api/v1/category/get-subcategories-by-category/' + id );
   }
 }
