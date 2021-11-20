@@ -93,6 +93,10 @@ export class ProductDetailComponent implements OnInit {
     }
 
     this.product = res.result;
+    for (const e of this.product.productDetails) {
+      e.imageUrl = 'data:image/jpeg;base64,' + e.imageByte;
+    }
+    this.product.imageUrl = 'data:image/jpeg;base64,' + this.product.imageByte;
     this.currentProductDetail = new ProductDetailModel(this.product.productDetails[0]);
   }
 

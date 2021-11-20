@@ -10,6 +10,7 @@ export class ProductDetailModel {
   public sellingPrice: number;
   public importingPrice: number;
   public imageUrl: string;
+  public imageByte: string;
   public color: ColorModel;
   public size: SizeModel;
   public product: ProductModel;
@@ -25,6 +26,7 @@ export class ProductDetailModel {
     this.sellingPrice = productDetail.sellingPrice;
     this.importingPrice = productDetail.importingPrice;
     this.imageUrl = productDetail.imageUrl;
+    this.imageByte = productDetail.imageByte;
     this.color = new ColorModel(productDetail.color);
     this.size = new SizeModel(productDetail.size);
     this.product = new ProductModel(productDetail.product);
