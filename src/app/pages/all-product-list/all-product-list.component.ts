@@ -106,7 +106,7 @@ export class AllProductListComponent implements  OnInit{
       this.productList = res.result;
 
       for ( const e of this.productList){
-        // const Obj = {name: e.name, imageUrl: e.imageUrl, sellingPrice: e.sellingPrice};
+        e.imageUrl = 'data:image/jpeg;base64,' + e.imageByte;        // const Obj = {name: e.name, imageUrl: e.imageUrl, sellingPrice: e.sellingPrice};
         this.collection.push(e);
       }
     }
