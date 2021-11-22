@@ -112,7 +112,7 @@ export class AddOrderInfoComponent implements AfterViewInit {
   private getCustomer(): void{
     this.loading.show();
     this.userModel = JSON.parse(localStorage.getItem(AUTH_CONSTANT.USER_DATA));
-    this.customerService.getById(this.userModel.id).subscribe(res => this.getCustomerCompleted(res));
+    this.customerService.getByEmail(this.userModel.email).subscribe(res => this.getCustomerCompleted(res));
   }
 
   private getCustomerCompleted(res: ResponseModel<CustomerModel>): void {

@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { LoginModel } from "src/app/data-services/login.model";
-import { CustomerModel } from "src/app/data-services/schema/customer.model";
-import { BaseSearchModel } from "src/app/data-services/search/base-search.model";
-import { StoreBaseService } from "../generic/store-base.service";
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { LoginModel } from 'src/app/data-services/login.model';
+import { CustomerModel } from 'src/app/data-services/schema/customer.model';
+import { BaseSearchModel } from 'src/app/data-services/search/base-search.model';
+import { StoreBaseService } from '../generic/store-base.service';
 
 @Injectable({
     providedIn: 'root'
@@ -18,14 +18,14 @@ export class CustomerService extends StoreBaseService{
         return this.get('/api/v1/customer/get-like-name' + name);
     }
 
-    public getById(id: number): Observable<any>{
-        return this.get('/api/v1/customer/' + id);
+    public getByEmail(email: string): Observable<any>{
+        return this.get('/api/v1/customer/get-by-email', {email});
     }
 
     public save(customer: CustomerModel): Observable<any>{
         return this.post('/api/v1/customer/insert', customer);
     }
-    
+
     public update(customer: CustomerModel): Observable<any>{
         return this.put('/api/v1/customer/update', customer);
     }

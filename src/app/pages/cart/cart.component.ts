@@ -1,13 +1,13 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AppAlert, AppLoading, AppModals} from '../../utils';
 import {ResponseModel} from '../../data-services/response.model';
 import {HTTP_CODE_CONSTANT} from '../../constants/http-code.constant';
 import {ProductService} from '../../services/store/product.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProductFullModel} from '../../data-services/schema/product-full.model';
-import {ProductDetailModel} from '../../data-services/schema/product-detail.model';
 import {CART_CONSTANT} from '../../constants/cart.constant';
 import {SellingTransactionModel} from '../../data-services/schema/selling-transaction.model';
+import {AppCommonNotificationComponent} from '../../components/notification/common/app-common-notification.component';
 
 @Component({
   selector: 'app-cart',
@@ -24,6 +24,7 @@ export class CartComponent implements OnInit {
     private productService: ProductService
   ) {
   }
+  @ViewChild('appCommonNotificationComponent', {static: true}) appCommonNotificationComponent: AppCommonNotificationComponent;
 
   public product: ProductFullModel = new ProductFullModel();
   public isLogin: boolean;
@@ -81,5 +82,6 @@ export class CartComponent implements OnInit {
 
   private updateCart(): void {
     localStorage.setItem(CART_CONSTANT.CART, JSON.stringify(this.productDetailsInCart));
+    this.appCommonNotificationComponent.updateBadgeEl();
   }
 }
