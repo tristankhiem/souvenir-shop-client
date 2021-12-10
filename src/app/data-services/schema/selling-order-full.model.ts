@@ -1,14 +1,15 @@
 import {CustomerModel} from './customer.model';
 import {SellingTransactionModel} from './selling-transaction.model';
 export class SellingOrderFullModel {
-  public id: number;
+  public id: string;
   public customer: CustomerModel;
-  public invoiceDate: string;
-  public total: number;
   public address: string;
+  public status: string;
+  public total: number;
+  public invoiceDate: string;
   public deliveryDate: string;
   public receivePerson: string;
-  public status: string;
+
   public sellingTransactions: SellingTransactionModel[] = [];
 
   public constructor(

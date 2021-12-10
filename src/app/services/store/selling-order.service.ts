@@ -10,30 +10,30 @@ import {SellingOrderFullModel} from '../../data-services/schema/selling-order-fu
 })
 export class SellingOrderService extends StoreBaseService {
   public search(search: BaseSearchModel<SellingOrderModel[]>): Observable<any> {
-    return this.post('/api/sellingorder/search', search);
+    return this.post('/api/v1/selling-order/search', search);
   }
 
-  public getById(id: number): Observable<any> {
-    return this.get('/api/sellingorder/' + id);
+  public getById(id: string): Observable<any> {
+    return this.get('/api/v1/selling-order/get-by-id/' + id);
   }
 
-  public getByCustomerId(id: number): Observable<any> {
-    return this.get('/api/sellingorder/get-by-customer-id/' + id);
+  public getByCustomerId(id: string): Observable<any> {
+    return this.get('/api/v1/selling-order/get-by-customer-id/' + id);
   }
 
   public save(sellingOrder: SellingOrderFullModel): Observable<any> {
-    return this.post('/api/sellingorder/insert', sellingOrder);
+    return this.post('/api/v1/selling-order/insert', sellingOrder);
   }
 
   public update(sellingOrder: SellingOrderFullModel): Observable<any> {
-    return this.put('/api/sellingorder/update', sellingOrder);
+    return this.put('/api/v1/selling-order/update', sellingOrder);
   }
 
-  public deleteSellingOrder(id: number): Observable<any> {
-    return this.delete('/api/sellingorder/delete/' + id);
+  public deleteSellingOrder(id: string): Observable<any> {
+    return this.delete('/api/v1/selling-order/delete/' + id);
   }
 
-  public payment(info): Observable<any> {
-    return this.post('/api/sellingorder/payment', info);
+  public payment(id: string): Observable<any> {
+    return this.get('/api/v1/selling-order/payment/' + id);
   }
 }

@@ -4,10 +4,6 @@ import {ResponseModel} from '../../data-services/response.model';
 import {HTTP_CODE_CONSTANT} from '../../constants/http-code.constant';
 import {ProductService} from '../../services/store/product.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ProductFullModel} from '../../data-services/schema/product-full.model';
-import {ProductDetailModel} from '../../data-services/schema/product-detail.model';
-import {CART_CONSTANT} from '../../constants/cart.constant';
-import {SellingTransactionModel} from '../../data-services/schema/selling-transaction.model';
 import {SellingOrderFullModel} from '../../data-services/schema/selling-order-full.model';
 import {SellingOrderService} from '../../services/store/selling-order.service';
 
@@ -36,16 +32,20 @@ export class PaymentComponent implements OnInit {
   }
 
   private getOrder(): void {
-    const orderId = Number(this.route.snapshot.paramMap.get('orderId'));
+    const orderId = this.route.snapshot.paramMap.get('orderId');
     this.sellingOrderService.getById(orderId).subscribe(res => this.getOrderCompleted(res));
   }
 
   private getOrderCompleted(res: ResponseModel<SellingOrderFullModel>): void {
-    this.loading.hide();
     if (res.status !== HTTP_CODE_CONSTANT.OK) {
       this.alert.errorMessages(res.message);
     }
 
     this.sellingOrder = res.result;
+
+    for ( const e of this.sellingOrder.sellingTransactions){
+      e.productDetail.imageUrl = 'data:image/jpeg;base64,' + e.productDetail.imageByte;
+    }
+    this.loading.hide();
   }
 }

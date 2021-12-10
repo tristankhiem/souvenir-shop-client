@@ -83,30 +83,12 @@ export class AddOrderInfoComponent implements AfterViewInit {
     return total;
   }
 
-  private getSellingOrder(id: number): void{
-    this.loading.show();
-    this.sellingOrderService.getById(id).subscribe(res => this.getSellingOrderCompleted(res));
-  }
-
-  private getSellingOrderCompleted(res: ResponseModel<SellingOrderFullModel>): void {
-    this.loading.hide();
-    if (res.status !== HTTP_CODE_CONSTANT.OK) {
-      this.alert.errorMessages(res.message);
-      return;
-    }
-
-    this.sellingOrder = res.result;
-  }
-
   private setData(): void {
     this.sellingOrder.customer = new CustomerModel(this.customer);
     this.sellingOrder.status = 'Chờ xác nhận';
     this.sellingOrder.address = this.customer.address;
     this.sellingOrder.receivePerson = this.customer.name;
     this.sellingOrder.total = +this.getTotal();
-    const currentDate = new Date();
-    this.sellingOrder.invoiceDate = new Date(currentDate.getTime()).toDateString();
-    this.sellingOrder.deliveryDate = null;
   }
 
   private getCustomer(): void{

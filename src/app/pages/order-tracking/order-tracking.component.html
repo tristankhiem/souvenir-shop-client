@@ -33,7 +33,7 @@
             <div *ngIf="collection.length !== 0 && collection != null">
               <div class="orders">
                 <div tag="order-component" *ngFor="let order of collection">
-                  <div  class="shop pb-0">
+                  <div class="shop">
                     <div class="shop-header border-bottom">
                       <div class="shop-left">
                         <div class="shop-left-leading-time">Ngày giao {{order.deliveryDate | date:'dd/MM/yyyy'}}</div>
@@ -41,17 +41,17 @@
                       <div class="shop-right">
                         <p class="shop-right-tip"></p>
                         <div class="shop-right-status">{{order.status}}</div>
-                        <div class="shop-right-action"></div>
+                        <div class="shop-right-action" style="color: gray"><a style="text-decoration: none" href="/thanh-toan/{{order.id}}"><i class="fa fa-arrow-right"></i></a></div>
                       </div>
                     </div>
                     <div class="shop-body">
-                      <div class="order-item m-0" *ngFor="let transaction of order.sellingTransactions">
-                        <div class="item-pic" data-spm="detail_image">
+                      <div class="order-item" *ngFor="let transaction of order.sellingTransactions">
+                        <div class="item-pic mr-4" data-spm="detail_image">
                           <a href="#">
                             <img src="{{transaction.productDetail.imageUrl}}"/>
                           </a>
                         </div>
-                        <div class="main-item main-item-mini" style="width: 280px; height: 74.2px;">
+                        <div class="main-item main-item-mini" style="width: 350px; height: 74.2px;">
                           <div>
                             <div class="text title item-title" data-spm="details_title">{{transaction.productDetail.name}}</div>
                             <div class="item-sku" style="width:280px;height:36px;">&nbsp;</div>

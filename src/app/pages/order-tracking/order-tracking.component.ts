@@ -28,7 +28,7 @@ export class OrderTrackingComponent implements OnInit{
 
     public orderList: SellingOrderFullModel[] = [];
     public collection: SellingOrderFullModel[] = [];
-    public customerId: number;
+    public customerId: string;
     public userData: UserModel = new UserModel();
 
     ngOnInit(): void {
@@ -59,6 +59,11 @@ export class OrderTrackingComponent implements OnInit{
       }
 
       this.orderList = res.result;
+      for (const o of this.orderList) {
+        for (const t of o.sellingTransactions) {
+          t.productDetail.imageUrl = 'data:image/jpeg;base64,' + t.productDetail.imageByte;
+        }
+      }
 
       this.loadOrders(0);
     }

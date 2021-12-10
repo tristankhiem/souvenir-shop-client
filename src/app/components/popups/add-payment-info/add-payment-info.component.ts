@@ -98,7 +98,7 @@ export class AddPaymentInfoComponent implements AfterViewInit {
     return !(this.numberCompleted && this.expiryCompleted && this.cvcCompleted);
   }
 
-  public show(sellingOrderId: number, event: Event): void {
+  public show(sellingOrderId: string, event: Event): void {
     event.preventDefault();
     this.sellingOrder.id = sellingOrderId;
     this.addPaymentInfoModalWrapper.show();
@@ -146,10 +146,7 @@ export class AddPaymentInfoComponent implements AfterViewInit {
 
   // tslint:disable-next-line:typedef
   private async createPaymentIntent() {
-    const paymentInput = {
-      orderId: this.sellingOrder.id
-    };
-    return this.sellingOrderService.payment(paymentInput).toPromise();
+    return this.sellingOrderService.payment(this.sellingOrder.id).toPromise();
   }
 
   // tslint:disable-next-line:typedef

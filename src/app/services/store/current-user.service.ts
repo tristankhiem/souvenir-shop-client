@@ -18,7 +18,7 @@ export class CurrentUserService {
     }
   }
 
-  public getId(): number {
+  public getId(): string {
     return this.user.id;
   }
 

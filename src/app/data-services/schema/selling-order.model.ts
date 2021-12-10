@@ -1,6 +1,6 @@
 import {CustomerModel} from './customer.model';
 export class SellingOrderModel {
-  public id: number;
+  public id: string;
   public customer: CustomerModel;
   public invoiceDate: string;
   public total: number;

@@ -6,7 +6,7 @@
       <div class="row">
         <div class="cart-page col-12">
           <div class="row">
-            <div class="col-4">
+            <div class="col-12">
               <h3>Mã đơn hàng: #{{sellingOrder.id}}</h3>
             </div>
           </div>
@@ -68,7 +68,7 @@
             <div class="cart-total text-right">
               <div class="total d-block">Tổng: {{sellingOrder.total | number}}<sub>đ</sub></div>
               <div class="clearfix"></div>
-              <a class="btn btn-lg btn-outline-pink btn-radius" href="#" (click)="addPaymentInfoComponent.show(sellingOrder.id, $event)">Thanh toán</a>
+<!--              <a class="btn btn-lg btn-outline-pink btn-radius" href="#" (click)="addPaymentInfoComponent.show(sellingOrder.id, $event)">Thanh toán</a>-->
             </div>
           </div>
         </div>
