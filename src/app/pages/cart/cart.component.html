@@ -11,15 +11,15 @@
             Giỏ hàng của bạn hiện tại không có sản phẩm nào !
           </div>
           <div *ngIf="productDetailsInCart != null && productDetailsInCart.length !== 0">
-            <table class="table table-cart">
+            <table class="table table-cart table-responsive">
               <thead>
               <tr>
                 <th style="width: 15%"><i class="d-none fa fa-pink fa-1x5 fa-check-square"></i> Sản phẩm</th>
                 <th class="text-center" style="width: 30%">Mô tả</th>
-                <th class="text-center d-none d-md-table-cell" style="width: 15%">Đơn giá</th>
-                <th class="text-center d-none d-md-table-cell" style="width: 15%">Số lượng</th>
-                <th class="text-center d-none d-md-table-cell" style="width: 15%">Tổng</th>
-                <th class="text-center d-none d-md-table-cell" style="width: 10%">Thao tác</th>
+                <th class="text-center" style="width: 15%">Đơn giá</th>
+                <th class="text-center" style="width: 15%">Số lượng</th>
+                <th class="text-center" style="width: 15%">Tổng</th>
+                <th class="text-center" style="width: 10%">Thao tác</th>
               </tr>
               </thead>
               <tbody>
@@ -41,10 +41,10 @@
                      title="{{item.productDetail.name}}">
                     {{item.productDetail.name}} </a>
                 </td>
-                <td class="text-center d-none d-md-table-cell">
+                <td class="text-center">
                   <strong class="d-block">{{item.productDetail.sellingPrice | number}}đ</strong>
                 </td>
-                <td class="text-center d-none d-md-table-cell">
+                <td class="text-center">
                   <div class="blk-qty d-flex justify-content-center align-items-center">
                     <div data-label="cart" class="blk-qty-btn minus d-flex justify-content-center align-items-center"
                          (click)="decreaseQuantity(i)">-
@@ -56,10 +56,10 @@
                     </div>
                   </div>
                 </td>
-                <td class="text-center d-none d-md-table-cell">
+                <td class="text-center">
                   <strong>{{item.productDetail.sellingPrice * item.quantity | number}}đ</strong>
                 </td>
-                <td class="text-center d-none d-md-table-cell">
+                <td class="text-center">
                   <a class="remove-cart" (click)="deleteItem(i)">Xóa</a></td>
               </tr>
               </tbody>

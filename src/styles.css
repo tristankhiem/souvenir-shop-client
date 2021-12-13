@@ -126,7 +126,7 @@ input.adi-none-appearance[type=number] {
   border: 2px solid #ffb0bd;
   border-radius: 8px;
   overflow: hidden;
-  width: 500px;
+  width: 40%;
 }
 
 ul {
@@ -762,7 +762,7 @@ input[type=number] {
 }
 
 .order-no-data-btn {
-  border: 1px solid #f57224;
+  border: 1px solid #ffb0bd;
   border-radius: 2px;
   text-align: center;
   font-size: 12px;
@@ -775,7 +775,7 @@ input[type=number] {
 }
 
 .order-no-data-btn-text {
-  color: #f57224;
+  color: #ffb0bd;
 }
 
 .order-paid h2{
@@ -791,7 +791,6 @@ input[type=number] {
   font-size: 13px;
   height: 29px;
   line-height: 29px;
-  color: #5d5d5d;
   padding: 0 20px;
 }
 
@@ -834,7 +833,6 @@ input[type=number] {
 }
 
 .shop .shop-header .shop-right .shop-right-status {
-  background-color: #ecf0f7;
   color: #333;
   font-size: 14px;
   padding: 4px 12px;
@@ -853,7 +851,6 @@ input[type=number] {
   width: 100%;
   min-width: 1188px;
   min-height: 474px;
-  background: #eff0f4;
   position: relative;
   padding-bottom: 40px;
 }
@@ -975,9 +972,8 @@ input[type=number] {
 .lzd-playground-right .breadcrumb {
   height: 60px;
   line-height: 60px;
-  font-family: Roboto-Regular;
   font-size: 13px;
-  color: #fffefe !important;
+  background: #ffffff;
   letter-spacing: .09px;
 }
 

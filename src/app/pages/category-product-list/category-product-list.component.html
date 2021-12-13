@@ -3,7 +3,7 @@
     <div class="container">
       <div class="content">
         <div class="row">
-          <div class="col-3 ">
+          <div class="col-12 col-lg-3">
             <div class="filter-groups d-block full clearfix">
               <div class="filter-title d-flex align-items-center justify-content-between"
                    aria-expanded="true" data-toggle="collapse" data-target="#fi-cat">
@@ -24,13 +24,13 @@
                           [options]="options"  (userChange)="priceFilter(minValue,maxValue)"></ngx-slider>
             </div>
           </div>
-          <div class="col-lg-9">
+          <div class="col-12 col-lg-9">
             <div class="d-pro-head">
               <h1>{{this.title}}</h1>
             </div>
             <div class="clearfix"></div>
             <div class="row">
-              <div *ngFor="let item of collection | paginate: { itemsPerPage: 12, currentPage: p }" class="product-item col-3">
+              <div *ngFor="let item of collection | paginate: { itemsPerPage: 12, currentPage: p }" class="product-item col-lg-3 col-6">
                 <div class="image">
                   <a routerLink="/chi-tiet-san-pham/{{item.id}}">
                     <img data-sizes="auto" class="lazyautosizes lazyloaded"

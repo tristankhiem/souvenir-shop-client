@@ -32,11 +32,12 @@
             </div>
             <div *ngIf="collection.length !== 0 && collection != null">
               <div class="orders">
-                <div tag="order-component" *ngFor="let order of collection">
+                <div tag="order-component" *ngFor="let order of collection" style="box-shadow: 3px 3px 3px 3px #888888;">
                   <div class="shop">
                     <div class="shop-header border-bottom">
                       <div class="shop-left">
-                        <div class="shop-left-leading-time">Ngày giao {{order.deliveryDate | date:'dd/MM/yyyy'}}</div>
+                        <div class="shop-left-leading-time">Ngày đặt: {{order.invoiceDate | date:'dd/MM/yyyy'}}</div>
+                        <div class="shop-left-leading-time">Ngày giao: {{order.deliveryDate | date:'dd/MM/yyyy'}}</div>
                       </div>
                       <div class="shop-right">
                         <p class="shop-right-tip"></p>
@@ -68,6 +69,7 @@
                         </div>
                         <div class="item-info"></div>
                         <div class="clear"></div>
+                        <hr>
                       </div>
                     </div>
                   </div>

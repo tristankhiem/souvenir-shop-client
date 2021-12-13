@@ -25,14 +25,14 @@
           </div>
           <hr>
           <div>
-            <table class="table table-cart">
+            <table class="table table-cart table-responsive">
               <thead>
               <tr>
                 <th style="width: 15%"><i class="d-none fa fa-pink fa-1x5 fa-check-square"></i> Sản phẩm</th>
                 <th class="text-center" style="width: 30%">Mô tả</th>
-                <th class="text-center d-none d-md-table-cell" style="width: 15%">Đơn giá</th>
-                <th class="text-center d-none d-md-table-cell" style="width: 15%">Số lượng</th>
-                <th class="text-center d-none d-md-table-cell" style="width: 15%">Tổng</th>
+                <th class="text-center" style="width: 15%">Đơn giá</th>
+                <th class="text-center" style="width: 15%">Số lượng</th>
+                <th class="text-center" style="width: 15%">Tổng</th>
               </tr>
               </thead>
               <tbody>
@@ -53,13 +53,13 @@
                      title="{{item.productDetail.name}}">
                     {{item.productDetail.name}} </a>
                 </td>
-                <td class="text-center d-none d-md-table-cell">
+                <td class="text-center">
                   <strong class="d-block">{{item.productDetail.sellingPrice | number}}đ</strong>
                 </td>
-                <td class="text-center d-none d-md-table-cell">
+                <td class="text-center">
                   <strong>{{item.quantity | number}}</strong>
                 </td>
-                <td class="text-center d-none d-md-table-cell">
+                <td class="text-center">
                   <strong>{{item.productDetail.sellingPrice * item.quantity | number}}đ</strong>
                 </td>
               </tr>
